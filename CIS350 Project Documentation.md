@@ -7,8 +7,7 @@ With the number of college undergraduate students increasing yearly, the demand 
 ### 3. Architectural Design
 
 #### 3.1 Class Diagram
-xfun::embed_file("ClassDiagram.pdf")
+![](ClassDiagram.png) 
 
 #### 3.2 Sequence Diagram
-xfun::embed_file("SequenceDiagram.pdf")
-xfun::embed_file("UseCaseDiagram.pdf")
+
