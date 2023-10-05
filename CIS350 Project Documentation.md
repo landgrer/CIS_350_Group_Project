@@ -4,4 +4,5 @@ Classes are hard for many students. Many students may struggle with coursework, 
 ### 2. Introduction
 With the number of college undergraduate students increasing yearly, the demand for education increases with it.
 
-![].ClassDiagram.pdf
+
+[UseCaseDiagram.pdf](https://github.com/landgrer/CIS_350_Group_Project/files/12822013/UseCaseDiagram.pdf)
