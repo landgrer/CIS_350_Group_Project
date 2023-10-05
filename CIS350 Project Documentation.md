@@ -4,5 +4,10 @@ Classes are hard for many students. Many students may struggle with coursework, 
 ### 2. Introduction
 With the number of college undergraduate students increasing yearly, the demand for education increases with it.
 
+### 3. Architectural Design
 
-[UseCaseDiagram.pdf](https://github.com/landgrer/CIS_350_Group_Project/files/12822013/UseCaseDiagram.pdf)
+#### 3.1 Class Diagram
+
+
+#### 3.2 Sequence Diagram
+
