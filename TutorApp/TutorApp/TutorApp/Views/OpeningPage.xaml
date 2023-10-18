@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutorApp.Views.OpeningPage"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="True">
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Label Text="Time" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Picker Title="Day" ItemsSource="{Binding DayOptions}" SelectedItem="{Binding Day}"/>
+            <Picker Title="Start Time" ItemsSource="{Binding TimeOptions}" SelectedItem="{Binding StartTime}"/>
+            <Picker Title="End Time" ItemsSource="{Binding TimeOptions}" SelectedItem="{Binding EndTime}"/>
+            <Label Text="Name" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Entry Placeholder="Enter your name" Text="{Binding Name}" x:Name="TextName" />
+            <Label Text="Role" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Picker Title="Role" ItemsSource="{Binding Roles}" SelectedItem="{Binding Role}"/>
+            <Label Text="Subject" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Picker Title="Subject" ItemsSource="{Binding Subjects}" SelectedItem="{Binding Subject}"/>
+            <Button VerticalOptions="Center" Text="Submit" BackgroundColor="DarkBlue" Command="{Binding SubmitCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

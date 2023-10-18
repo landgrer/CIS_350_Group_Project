@@ -1,0 +1,17 @@
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.csproj.AssemblyReference.cache
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.AssemblyInfoInputs.cache
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.AssemblyInfo.cs
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.csproj.CoreCompileInputs.cache
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\OpeningPage.xaml.g.cs
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\MeetingPage.xaml.g.cs
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.dll
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\ref\TutorApp.dll
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.pdb
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\bin\Debug\netstandard2.0\TutorApp.deps.json
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\bin\Debug\netstandard2.0\TutorApp.dll
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\bin\Debug\netstandard2.0\ref\TutorApp.dll
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\bin\Debug\netstandard2.0\TutorApp.pdb
+C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\XamlC.stamp
