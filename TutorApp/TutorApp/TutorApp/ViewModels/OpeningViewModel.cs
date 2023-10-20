@@ -11,6 +11,7 @@ namespace TutorApp.ViewModels
     public class OpeningViewModel : BaseViewModel
     {
         #region Properties
+        private DatabaseClient database = DatabaseClient.GetInstance();
         public Command SubmitCommand { get; set; }
         public EventHandler DateChangedCommand { get; set; }
         public Meeting Tutor { get; set; } = new Meeting();
@@ -108,9 +109,9 @@ namespace TutorApp.ViewModels
             };
 
             if (Role.Equals("Tutor"))
-                await FakeDataBase.AddMeeting(meeting);
+                await database.AddMeeting(meeting);
             else
-                await FakeDataBase.Filter(Convert.ToDateTime(meeting.StartTime), Convert.ToDateTime(meeting.EndTime), meeting.Subject);
+                await database.FilterMeetings(Convert.ToDateTime(meeting.StartTime), Convert.ToDateTime(meeting.EndTime), meeting.Subject);
 
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             await Shell.Current.GoToAsync($"//{nameof(MeetingPage)}?");
@@ -148,7 +149,7 @@ namespace TutorApp.ViewModels
                     StartTime = Tutor.StartTime,
                     EndTime = meeting.StartTime
                 };
-                await FakeDataBase.AddMeeting(newMeeting);
+                await database.AddMeeting(newMeeting);
             }
 
             if (personEndTime.Subtract(tutorEndTime).Minutes < 0)
@@ -162,12 +163,12 @@ namespace TutorApp.ViewModels
                     StartTime = meeting.EndTime,
                     EndTime = Tutor.EndTime
                 };
-                await FakeDataBase.AddMeeting(newMeeting);
+                await database.AddMeeting(newMeeting);
             }
 
-            await FakeDataBase.RemoveMeeting(Tutor);
+            await database.RemoveMeeting(Tutor);
 
-            await FakeDataBase.AddMeeting(meeting);
+            await database.AddMeeting(meeting);
 
             // Alert user of update.
             string title = "Scheduled";

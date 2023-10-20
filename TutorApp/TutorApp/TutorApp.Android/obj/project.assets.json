@@ -2148,11 +2148,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anthony.chouinard\\source\\repos\\TutorApp\\TutorApp\\TutorApp.Android\\TutorApp.Android.csproj",
+      "projectUniqueName": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.Android\\TutorApp.Android.csproj",
       "projectName": "TutorApp.Android",
-      "projectPath": "C:\\Users\\anthony.chouinard\\source\\repos\\TutorApp\\TutorApp\\TutorApp.Android\\TutorApp.Android.csproj",
+      "projectPath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.Android\\TutorApp.Android.csproj",
       "packagesPath": "C:\\Users\\anthony.chouinard\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anthony.chouinard\\source\\repos\\TutorApp\\TutorApp\\TutorApp.Android\\obj\\",
+      "outputPath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2174,8 +2174,8 @@
       "frameworks": {
         "monoandroid11.0": {
           "projectReferences": {
-            "C:\\Users\\anthony.chouinard\\source\\repos\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj": {
-              "projectPath": "C:\\Users\\anthony.chouinard\\source\\repos\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj"
+            "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj": {
+              "projectPath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj"
             }
           }
         }

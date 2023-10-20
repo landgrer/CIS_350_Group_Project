@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uT6aVE3lVzBL5+n2tSplrmlFbwQmwRCuEWu0qAvcIhMAoKdjN1X5gSgYKYqhp4pkN78kn/NeeTPP+MqbN11hRw==",
+  "dgSpecHash": "0GamoGfq3LeU6x7Bm+4N9+AX2i8N1u1TRktCOSxjWMpJhpz7ktx/yQFFVCM26/wBMEWRtS/YFDrVj+q42ox4YQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\repos\\TutorApp\\TutorApp\\TutorApp.iOS\\TutorApp.iOS.csproj",
+  "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.iOS\\TutorApp.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",

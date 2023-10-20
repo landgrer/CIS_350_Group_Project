@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1RrF83FgwaXHxKH32PkN7ek3zg3AV/bHDEUMR8hUJ0tgdKVJgaGli7ORyToxdtDAQTdr7jx+fQxc/8cqNFrmCg==",
+  "dgSpecHash": "2PA4rcJ1hbvkkjPM4fYjTrFmI54hC7dvTAuU1jJhVZF+3ifRPGvLrT5B7xgVMbsaZJ5SMNB1VPkjpQiMOaGosQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\repos\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj",
+  "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

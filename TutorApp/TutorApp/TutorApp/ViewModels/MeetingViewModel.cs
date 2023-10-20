@@ -11,6 +11,7 @@ namespace TutorApp.ViewModels
     public class MeetingViewModel : BaseViewModel
     {
         #region Properties
+        private DatabaseClient database = DatabaseClient.GetInstance();
         public Command MeetingSelectedCommand { get; set; }
 
         private Meeting _selectedMeeting = new Meeting();
@@ -48,7 +49,7 @@ namespace TutorApp.ViewModels
         public async void OnAppearing()
         {
             Meetings.Clear();
-            List<Meeting> meetings = await FakeDataBase.GetData();
+            List<Meeting> meetings = await database.GetMeetings();
             foreach (Meeting meeting in meetings)
                 Meetings.Add(meeting);
         }

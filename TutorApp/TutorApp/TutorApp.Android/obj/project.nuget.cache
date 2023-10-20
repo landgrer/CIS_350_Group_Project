@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O+Gs1yJ112xz3W3ZMfRdD63UnI+ctv7cmaJ64E4KGEBvH8kKrVsCUfAjqbL4IEVMwIvzxub3nDDIudTeZlPpWw==",
+  "dgSpecHash": "rjuf0REo5PcrJZscV4JgWGJPyXX1IfyWiZDukryULV0bz2e43dp8ih7x7i2eksAtMZ2wCZkNb8Qvm+Mkf8SF8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\repos\\TutorApp\\TutorApp\\TutorApp.Android\\TutorApp.Android.csproj",
+  "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.Android\\TutorApp.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.1.0.5\\xamarin.androidx.activity.1.1.0.5.nupkg.sha512",
