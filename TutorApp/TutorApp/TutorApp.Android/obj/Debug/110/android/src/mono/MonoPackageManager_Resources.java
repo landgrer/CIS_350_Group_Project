@@ -3,7 +3,13 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "TutorApp.Android.dll" comes first in this list. */
 		"TutorApp.Android.dll",
+		"FireSharp.dll",
 		"FormsViewGroup.dll",
+		"Microsoft.Threading.Tasks.dll",
+		"Microsoft.Threading.Tasks.Extensions.dll",
+		"Newtonsoft.Json.dll",
+		"System.Net.Http.Extensions.dll",
+		"System.Net.Http.Primitives.dll",
 		"TutorApp.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.Annotation.dll",

@@ -119,6 +119,9 @@ namespace TutorApp.ViewModels
 
         private async void OnScheduledSubmitClicked(object obj)
         {
+            FirebaseTool firebase = new FirebaseTool();
+            firebase.Call();
+
             if (await IsEntryValid() == false)
                 return;
 
