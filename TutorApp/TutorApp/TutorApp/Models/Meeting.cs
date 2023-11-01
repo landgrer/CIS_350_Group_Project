@@ -2,6 +2,7 @@
 {
     public class Meeting
     {
+        public string ID { get; set; }
         public string Name { get; set; }
         public string Role { get; set; }
         public string Availability { get; set; }

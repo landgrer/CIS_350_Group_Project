@@ -11,7 +11,7 @@ namespace TutorApp.ViewModels
     public class MeetingViewModel : BaseViewModel
     {
         #region Properties
-        private DatabaseClient database = DatabaseClient.GetInstance();
+        private FirebaseTool database = FirebaseTool.GetInstance();
         public Command MeetingSelectedCommand { get; set; }
 
         private Meeting _selectedMeeting = new Meeting();
@@ -49,9 +49,8 @@ namespace TutorApp.ViewModels
         public async void OnAppearing()
         {
             Meetings.Clear();
-            List<Meeting> meetings = await database.GetMeetings();
-            foreach (Meeting meeting in meetings)
-                Meetings.Add(meeting);
+            foreach (var meeting in await database.GetMeetings())
+                Meetings.Add(meeting.Value);
         }
 
         private void OnTextChanged()

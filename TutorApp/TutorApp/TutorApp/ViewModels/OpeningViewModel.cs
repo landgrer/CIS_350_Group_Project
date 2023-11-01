@@ -11,7 +11,7 @@ namespace TutorApp.ViewModels
     public class OpeningViewModel : BaseViewModel
     {
         #region Properties
-        private DatabaseClient database = DatabaseClient.GetInstance();
+        private FirebaseTool database = FirebaseTool.GetInstance();
         public Command SubmitCommand { get; set; }
         public EventHandler DateChangedCommand { get; set; }
         public Meeting Tutor { get; set; } = new Meeting();
@@ -109,9 +109,9 @@ namespace TutorApp.ViewModels
             };
 
             if (Role.Equals("Tutor"))
-                await database.AddMeeting(meeting);
-            else
-                await database.FilterMeetings(Convert.ToDateTime(meeting.StartTime), Convert.ToDateTime(meeting.EndTime), meeting.Subject);
+                await database.Add(meeting);
+            //else
+            //    await database.FilterMeetings(Convert.ToDateTime(meeting.StartTime), Convert.ToDateTime(meeting.EndTime), meeting.Subject);
 
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             await Shell.Current.GoToAsync($"//{nameof(MeetingPage)}?");
@@ -119,8 +119,8 @@ namespace TutorApp.ViewModels
 
         private async void OnScheduledSubmitClicked(object obj)
         {
-            FirebaseTool firebase = new FirebaseTool();
-            firebase.Call();
+            FirebaseTool.GetInstance();
+
 
             if (await IsEntryValid() == false)
                 return;
@@ -152,7 +152,7 @@ namespace TutorApp.ViewModels
                     StartTime = Tutor.StartTime,
                     EndTime = meeting.StartTime
                 };
-                await database.AddMeeting(newMeeting);
+                await database.Add(newMeeting);
             }
 
             if (personEndTime.Subtract(tutorEndTime).Minutes < 0)
@@ -166,12 +166,12 @@ namespace TutorApp.ViewModels
                     StartTime = meeting.EndTime,
                     EndTime = Tutor.EndTime
                 };
-                await database.AddMeeting(newMeeting);
+                await database.Add(newMeeting);
             }
 
-            await database.RemoveMeeting(Tutor);
+            await database.Remove(Tutor);
 
-            await database.AddMeeting(meeting);
+            await database.Add(meeting);
 
             // Alert user of update.
             string title = "Scheduled";

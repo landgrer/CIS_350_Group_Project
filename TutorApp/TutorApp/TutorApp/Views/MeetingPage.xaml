@@ -16,17 +16,16 @@
                     <DataTemplate>
                         <Frame BackgroundColor="{StaticResource Primary}"                               
                                BorderColor="Black"                               
-                               CornerRadius="50"
+                               CornerRadius="30"
                                Padding="10">
-                            <Grid Padding="10"
+                            <Grid Margin="15"
                               RowSpacing="10"
                               RowDefinitions="Auto,Auto,Auto"
                               ColumnSpacing="10"
                               ColumnDefinitions="Auto,Auto,Auto">
                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontAttributes="Bold" FontSize="Large" TextColor="AliceBlue"/>
                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding Subject}" FontSize="Large" TextColor="AliceBlue"/>
-                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Role}" FontSize="Medium" TextColor="AliceBlue"/>
-                                <Label Grid.Row="0" Grid.Column="3" Text="{Binding Availability}" FontSize="Medium" TextColor="AliceBlue"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Availability}" FontSize="Medium" TextColor="AliceBlue"/>
                                 <Label Grid.Row="1" Text="{Binding StudentName}" TextColor="AliceBlue"/>
                                 <Label Grid.Row="1" Grid.Column="1" Text="{Binding StartTime}" TextColor="AliceBlue"/>
                                 <Label Grid.Row="2" Grid.Column="1" Text="{Binding EndTime}" TextColor="AliceBlue"/>
