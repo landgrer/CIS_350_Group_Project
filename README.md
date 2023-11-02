@@ -14,7 +14,7 @@ ___
 ### 3. Architectural Design
 ___
 #### 3.1 Class Diagram
-![Alt text](CIS_350_Project_Class_Diagram_-_v2.png)
+![Alt text](CIS350ProjectClassDiagram-v2.png)
 ___
 #### 3.2 Sequence Diagram
 ![Alt text](SequenceDiagram-1.png)
