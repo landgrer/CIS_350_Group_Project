@@ -110,8 +110,8 @@ namespace TutorApp.ViewModels
 
             if (Role.Equals("Tutor"))
                 await database.Add(meeting);
-            //else
-            //    await database.FilterMeetings(Convert.ToDateTime(meeting.StartTime), Convert.ToDateTime(meeting.EndTime), meeting.Subject);
+            else
+                await database.FilterMeetings(Convert.ToDateTime(meeting.StartTime), Convert.ToDateTime(meeting.EndTime), meeting.Subject);
 
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             await Shell.Current.GoToAsync($"//{nameof(MeetingPage)}?");
