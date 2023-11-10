@@ -5,14 +5,14 @@ using Xamarin.Forms.Xaml;
 namespace TutorApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MyReviewPage : ContentPage
+    public partial class MeetingReviewPage : ContentPage
     {
-        MyReviewViewModel _viewModel;
+        MeetingReviewViewModel _viewModel;
 
-        public MyReviewPage()
+        public MeetingReviewPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = new MyReviewViewModel();
+            BindingContext = _viewModel = new MeetingReviewViewModel();
         }
 
         protected override void OnAppearing()

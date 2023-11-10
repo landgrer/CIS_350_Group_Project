@@ -14,8 +14,8 @@
             <Entry Placeholder="Enter your first name" Text="{Binding FirstName}"/>
             <Label Text="Last Name" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
             <Entry Placeholder="Enter your last name" Text="{Binding LastName}"/>
-            <Button VerticalOptions="Center" Text="Submit" BackgroundColor="DarkBlue" Command="{Binding SubmitCommand}" />
-            <Button VerticalOptions="Center" Text="Delete" BackgroundColor="DarkBlue" Command="{Binding DeleteCommand}" />
+            <Button Text="Submit" CornerRadius="10" BackgroundColor="DarkBlue" Command="{Binding SubmitCommand}" />
+            <Button Text="Delete" CornerRadius="10" BackgroundColor="DarkBlue" Command="{Binding DeleteCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

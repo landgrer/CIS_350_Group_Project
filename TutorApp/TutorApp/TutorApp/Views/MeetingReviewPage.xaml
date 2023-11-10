@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fRating="clr-namespace:Rating;assembly=Rating"
+             x:Class="TutorApp.Views.MeetingReviewPage"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="True">
+    <ContentPage.Content>
+        <StackLayout Padding="10,10,10,10" VerticalOptions="Center">
+            <CollectionView ItemsSource="{Binding MeetingRatings}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedRating}"
+                            SelectionChangedCommand="{Binding ReviewSelectedCommand}"
+                            BackgroundColor="AliceBlue">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="{StaticResource Primary}"                            
+                               BorderColor="Black"                               
+                               CornerRadius="20"
+                               Padding="5,5,5,5">
+                            <Grid Margin="10"
+                                  RowSpacing="0"
+                                  RowDefinitions="Auto,Auto,Auto"
+                                  ColumnSpacing="10"
+                                  ColumnDefinitions="Auto,Auto,Auto">
+                                <fRating:RatingBar SelectedStarValue="{Binding Stars}"
+                                                   IsEnabled="False"
+                                                   Grid.Row="0" 
+                                                   Grid.Column="3"                                        
+                                                   ImageHeight="20"
+                                                   ImageWidth="20"
+                                                   HorizontalOptions="End"
+                                                   FlowDirection="LeftToRight"
+                                                   EmptyStarImage="EmptyStar"
+                                                   FillStarImage="FilledStar">
+                                </fRating:RatingBar>                                
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding TutorName}" FontAttributes="Bold" FontSize="Large" TextColor="AliceBlue"/>
+                                <BoxView Grid.Row="2" Grid.ColumnSpan="4"  Color="Black" HeightRequest="2" HorizontalOptions="Fill" />
+                                <Label Grid.Row="3" Grid.ColumnSpan="4" Text="{Binding Comment}" FontSize="Medium" TextColor="AliceBlue"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="My Reviews" CornerRadius="10" BackgroundColor="DarkBlue" Command="{Binding MyReviewsCommand}" />
+            <Button Text="All Reviews" CornerRadius="10" BackgroundColor="DarkBlue" Command="{Binding AllReviewsCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

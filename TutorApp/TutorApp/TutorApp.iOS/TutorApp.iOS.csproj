@@ -148,4 +148,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\FilledStar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Review.png" />
+  </ItemGroup>
 </Project>

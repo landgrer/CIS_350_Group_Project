@@ -5,9 +5,9 @@
              Title="{Binding Title}"
              Shell.NavBarIsVisible="True">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddMeetingCommand}" />
-        <ToolbarItem Text="Filter" Command="{Binding FilterMeetingCommand}" />
-        <ToolbarItem Text="Refresh" Command="{Binding RefreshCommand}" />
+        <ToolbarItem Text="Add" Command="{Binding AddMeetingCommand}" IconImageSource="Add.png"/>
+        <ToolbarItem Text="Filter" Command="{Binding FilterMeetingCommand}" IconImageSource="Filter.png"/>
+        <ToolbarItem Text="Refresh" Command="{Binding RefreshCommand}" IconImageSource="Refresh.png"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Padding="10,10,10,10" VerticalOptions="Center">
@@ -16,29 +16,33 @@
                             SelectionMode="Single"
                             SelectedItem="{Binding SelectedMeeting}"
                             SelectionChangedCommand="{Binding MeetingSelectedCommand}"
-                            BackgroundColor="AliceBlue">
+                            BackgroundColor="White">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BackgroundColor="{StaticResource Primary}"                               
                                BorderColor="Black"                               
-                               CornerRadius="30"
-                               Padding="10,0,10,0" 
+                               CornerRadius="20"
+                               Padding="10,0,10,0"
                                VerticalOptions="Center">
-                            <Grid Margin="15"
-                              RowSpacing="10"
+                            <Grid Margin="10"
+                              RowSpacing="0"
                               RowDefinitions="Auto,Auto,Auto"
                               ColumnSpacing="10"
                               ColumnDefinitions="Auto,Auto,Auto">
-                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Subject}" FontSize="Large" TextColor="AliceBlue"/>
+                                <BoxView Grid.Row="2" Grid.ColumnSpan="4"  Color="Black" HeightRequest="2" HorizontalOptions="Fill" />
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Subject}" FontSize="Medium" TextColor="AliceBlue"/>
                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding Availability}" FontSize="Medium" TextColor="AliceBlue"/>
                                 <Label Grid.Row="1" Grid.Column="0" Text="Tutor" FontSize="Medium" TextColor="AliceBlue"/>
                                 <Label Grid.Row="1" Grid.Column="1" Text="{Binding Name}" FontSize="Medium" TextColor="AliceBlue"/>
-                                <Label Grid.Row="2" Grid.Column="0" Text="Student Name:" TextColor="AliceBlue"/>
-                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding StudentName}" TextColor="AliceBlue"/>
-                                <Label Grid.Row="3" Grid.Column="0" Text="Start Time:" TextColor="AliceBlue"/>
-                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding StartTime}" TextColor="AliceBlue"/>
-                                <Label Grid.Row="4" Grid.Column="0" Text="End Time:" TextColor="AliceBlue"/>
-                                <Label Grid.Row="4" Grid.Column="1" Text="{Binding EndTime}" TextColor="AliceBlue"/>
+                                <Label Grid.Row="3" Grid.Column="0" Text="Student:" FontSize="Medium" TextColor="AliceBlue"/>
+                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding StudentName}" FontSize="Medium" TextColor="AliceBlue"/>
+                                <Label Grid.Row="4" Grid.Column="0" Text="Start Time:" FontSize="Medium" TextColor="AliceBlue"/>
+                                <Label Grid.Row="4" Grid.Column="1" Text="{Binding StartTime}" FontSize="Medium" TextColor="AliceBlue"/>
+                                <Label Grid.Row="5" Grid.Column="0" Text="End Time:" FontSize="Medium" TextColor="AliceBlue"/>
+                                <Label Grid.Row="5" Grid.Column="1" Text="{Binding EndTime}" FontSize="Medium" TextColor="AliceBlue"/>
                             </Grid>
                         </Frame>
                     </DataTemplate>

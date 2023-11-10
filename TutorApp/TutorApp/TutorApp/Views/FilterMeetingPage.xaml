@@ -12,8 +12,8 @@
             <Picker Title="End Time" ItemsSource="{Binding TimeOptions}" SelectedItem="{Binding EndTime}"/>
             <Label Text="Subject" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
             <Picker Title="Subject" ItemsSource="{Binding Subjects}" SelectedItem="{Binding Subject}"/>
-            <Button VerticalOptions="Center" Text="Submit" BackgroundColor="DarkBlue" Command="{Binding SubmitCommand}" />
-            <Button VerticalOptions="Center" Text="Clear" BackgroundColor="DarkBlue" Command="{Binding ClearCommand}" />
+            <Button Text="Submit" CornerRadius="10" BackgroundColor="DarkBlue" Command="{Binding SubmitCommand}" />
+            <Button Text="Clear" CornerRadius="10" BackgroundColor="DarkBlue" Command="{Binding ClearCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

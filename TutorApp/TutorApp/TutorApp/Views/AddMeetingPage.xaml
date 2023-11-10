@@ -16,7 +16,7 @@
             <Entry Placeholder="Enter your name" Text="{Binding Name}"/>
             <Label Text="Subject" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
             <Picker Title="Subject" ItemsSource="{Binding Subjects}" SelectedItem="{Binding Subject}"/>
-            <Button VerticalOptions="Center" Text="Submit" BackgroundColor="DarkBlue" Command="{Binding SubmitCommand}" />
+            <Button Text="Submit" CornerRadius="10" BackgroundColor="DarkBlue" Command="{Binding SubmitCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

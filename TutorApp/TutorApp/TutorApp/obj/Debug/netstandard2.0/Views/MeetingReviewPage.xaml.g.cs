@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("TutorApp.Views.MyReviewPage.xaml", "Views/MyReviewPage.xaml", typeof(global::TutorApp.Views.MyReviewPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("TutorApp.Views.MeetingReviewPage.xaml", "Views/MeetingReviewPage.xaml", typeof(global::TutorApp.Views.MeetingReviewPage))]
 
 namespace TutorApp.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\MyReviewPage.xaml")]
-    public partial class MyReviewPage : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\MeetingReviewPage.xaml")]
+    public partial class MeetingReviewPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MyReviewPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MeetingReviewPage));
         }
     }
 }
