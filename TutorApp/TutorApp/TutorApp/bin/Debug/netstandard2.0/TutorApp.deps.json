@@ -11,8 +11,10 @@
         "dependencies": {
           "FireSharp": "2.0.4",
           "NETStandard.Library": "2.0.3",
+          "Xam.Plugin.DeviceInfo": "4.2.0-beta",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012"
+          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Rating": "1.0.0.2"
         },
         "runtime": {
           "TutorApp.dll": {}
@@ -94,6 +96,14 @@
           }
         }
       },
+      "Xam.Plugin.DeviceInfo/4.2.0-beta": {
+        "runtime": {
+          "lib/netstandard2.0/Plugin.DeviceInfo.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Xamarin.Essentials/1.6.1": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -118,6 +128,18 @@
           "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "5.0.0.671"
+          }
+        }
+      },
+      "Xamarin.Rating/1.0.0.2": {
+        "dependencies": {
+          "Xamarin.Essentials": "1.6.1",
+          "Xamarin.Forms": "5.0.0.2012"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Rating.dll": {
+            "assemblyVersion": "1.0.0.2",
+            "fileVersion": "1.0.0.2"
           }
         }
       }
@@ -192,6 +214,13 @@
       "path": "system.numerics.vectors/4.5.0",
       "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
     },
+    "Xam.Plugin.DeviceInfo/4.2.0-beta": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N5B5UmgYkQsIcJui3A4K2sC63eWis/WQSYkE3+x6aG0FWEJ6W8Ga7mtaRKF7sLeKsJJvYZ/ZIIrnEhxu+rVlmw==",
+      "path": "xam.plugin.deviceinfo/4.2.0-beta",
+      "hashPath": "xam.plugin.deviceinfo.4.2.0-beta.nupkg.sha512"
+    },
     "Xamarin.Essentials/1.6.1": {
       "type": "package",
       "serviceable": true,
@@ -205,6 +234,13 @@
       "sha512": "sha512-Rqc6xvWR/sf+Db5+qRCFmuYTWVp04QWRfwPto2/JHbShSy4Ed53Q2jpoFzsoloXkJA6saD236PlaWAhT6vI4gw==",
       "path": "xamarin.forms/5.0.0.2012",
       "hashPath": "xamarin.forms.5.0.0.2012.nupkg.sha512"
+    },
+    "Xamarin.Rating/1.0.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-udVmz8Y+GeqMHG6zgAlNnvenyWv/PrwKZnw+8dqh9h7t/IeBGm2xtNpjBug+K9vFl+fjFSODwP+Xgut+yILI8Q==",
+      "path": "xamarin.rating/1.0.0.2",
+      "hashPath": "xamarin.rating.1.0.0.2.nupkg.sha512"
     }
   }
 }

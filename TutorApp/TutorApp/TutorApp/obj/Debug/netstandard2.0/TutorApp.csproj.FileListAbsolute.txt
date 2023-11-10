@@ -15,12 +15,10 @@ C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\bin\Debug\net
 C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\bin\Debug\netstandard2.0\ref\TutorApp.dll
 C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\bin\Debug\netstandard2.0\TutorApp.pdb
 C:\Users\anthony.chouinard\source\repos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\XamlC.stamp
-C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.csproj.AssemblyReference.cache
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\MeetingPage.xaml.g.cs
-C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\OpeningPage.xaml.g.cs
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.AssemblyInfoInputs.cache
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.AssemblyInfo.cs
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.csproj.CoreCompileInputs.cache
@@ -32,3 +30,11 @@ C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\Tut
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\bin\Debug\netstandard2.0\ref\TutorApp.dll
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\bin\Debug\netstandard2.0\TutorApp.pdb
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\ProfilePage.xaml.g.cs
+C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.csproj.AssemblyReference.cache
+C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\RatingPage.xaml.g.cs
+C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\MyReviewPage.xaml.g.cs
+C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\AddMeetingPage.xaml.g.cs
+C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\ScheduleMeetingPage.xaml.g.cs
+C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\TutorRatingPage.xaml.g.cs
+C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\Views\FilterMeetingPage.xaml.g.cs

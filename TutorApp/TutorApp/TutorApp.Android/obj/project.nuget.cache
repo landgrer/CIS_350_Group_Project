@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uSgNi89dUKpJWHZ3skTXsUSxdAlJGSqV06arcNh7jWgSqfhcCJMVrgoIpsYYNn3IOhOAQ9AZT0B+Vh5knxOkPQ==",
+  "dgSpecHash": "nDp48XcvFz/cU8dF38PF8r0dLaDhtRQQMkS7BbUCJWLLVAuAJrlTkRCdhLXKdTPED2Q1h/4GF0gpR0bZD+AEoQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.Android\\TutorApp.Android.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,9 @@
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\microsoft.bcl.build\\1.0.14\\microsoft.bcl.build.1.0.14.nupkg.sha512",
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\microsoft.net.http\\2.2.28\\microsoft.net.http.2.2.28.nupkg.sha512",
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\newtonsoft.json\\6.0.4\\newtonsoft.json.6.0.4.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\plugin.currentactivity\\2.1.0.4\\plugin.currentactivity.2.1.0.4.nupkg.sha512",
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\xam.plugin.deviceinfo\\4.2.0-beta\\xam.plugin.deviceinfo.4.2.0-beta.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.1.0.5\\xamarin.androidx.activity.1.1.0.5.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation\\1.1.0.8\\xamarin.androidx.annotation.1.1.0.8.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation.experimental\\1.0.0.8\\xamarin.androidx.annotation.experimental.1.0.0.8.nupkg.sha512",
@@ -58,7 +60,8 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.android.material\\1.2.1.1\\xamarin.google.android.material.1.2.1.1.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\xamarin.rating\\1.0.0.2\\xamarin.rating.1.0.0.2.nupkg.sha512"
   ],
   "logs": []
 }

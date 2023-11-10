@@ -3,8 +3,8 @@ using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using TutorApp.Models;
 using Xamarin.Forms;
@@ -15,152 +15,114 @@ namespace TutorApp.Services
     {
         private IFirebaseConfig firebaseConfig;
         private IFirebaseClient client;
-        private Dictionary<string, Meeting> meetings = new Dictionary<string, Meeting>();
-        private Dictionary<string, Meeting> filteredMeetings = new Dictionary<string, Meeting>();
-        private static FirebaseTool instance = new FirebaseTool();
 
         public FirebaseTool()
         {
-            try
-            {
-                firebaseConfig = new FirebaseConfig() { BasePath = "https://loginwith-dce6a-default-rtdb.firebaseio.com/" };
-                client = new FirebaseClient(firebaseConfig);
-                GetData();
-            }
-            catch (Exception ex)
-            {
-                Task.Run(async () => { await DisplayError(ex.ToString()); }).GetAwaiter();
-            }
+            firebaseConfig = new FirebaseConfig() { BasePath = "https://loginwith-dce6a-default-rtdb.firebaseio.com/" };
+            client = new FirebaseClient(firebaseConfig);
         }
 
-        #region Public Methods
-        public static FirebaseTool GetInstance()
+        #region Meeting Methods
+        public async Task<Dictionary<string, Meeting>> GetMeetings()
         {
-            return instance;
-        }
-
-        public Task<Dictionary<string, Meeting>> GetMeetings()
-        {
-            // Retuns the complete Dictionary if there are no filtered meetings.
-            if (filteredMeetings.Count == 0)
-                return Task.FromResult(meetings);
-
-            return Task.FromResult(filteredMeetings);
+            Dictionary<string, Meeting> meetings = new Dictionary<string, Meeting>();
+            FirebaseResponse response = await client.GetAsync(@"Meetings/");
+            string model = response.Body.ToString();
+            if (model.Equals("null") == false)
+                meetings = JsonConvert.DeserializeObject<Dictionary<string, Meeting>>(model);
+            return meetings;
         }
 
         public async Task Add(Meeting meeting)
         {
-            // This creates a unique ID.
-            string uniqueID = meeting.ID = Guid.NewGuid().ToString("N");
-
             // Add to database.
-            var response = client.Set($"Meetings/{uniqueID}", meeting);
+            var response = await client.SetAsync($"Meetings/{meeting.ID}", meeting);
 
             // Check if it posted.
             if (response.Body.Length == 0)
                 await DisplayError("Failed to add meeting");
-
-            // Add to Dictionary.
-            meetings.Add(uniqueID, meeting);
-
-            // Dictionary changed, clear filtered meetings.
-            filteredMeetings.Clear();
         }
 
-        public Task Remove(Meeting meeting)
+        public async Task Remove(Meeting meeting)
         {
             // Removing from database.
-            client.Delete($"Meetings/{meeting.ID}");
+            var response = await client.DeleteAsync($"Meetings/{meeting.ID}");
 
-            // Removing from Dictionary.
-            meetings.Remove(meeting.ID);
-
-            // Dictionary changed, clear filtered meetings.
-            filteredMeetings.Clear();
-
-            return Task.CompletedTask;
-        }
-
-        public Task FilterMeetings(string subject)
-        {
-            filteredMeetings.Clear();
-
-            foreach (var meeting in meetings)
-                if (meeting.Value.Subject.Equals(subject))
-                    filteredMeetings.Add(meeting.Key, meeting.Value);
-
-            VerifyFilteredMeetings();
-
-            return Task.CompletedTask;
-        }
-
-        public Task FilterMeetings(DateTime startTime, DateTime endTime)
-        {
-            long start = startTime.Ticks;
-            long end = endTime.Ticks;
-            filteredMeetings.Clear();
-
-            foreach (var meeting in meetings)
-            {
-                DateTime tutorStartTime = Convert.ToDateTime(meeting.Value.StartTime);
-                long tutorStart = tutorStartTime.Ticks;
-                long tutorEnd = tutorStartTime.Ticks;
-                if (start < tutorEnd && end > tutorStart)
-                    filteredMeetings.Add(meeting.Key, meeting.Value);
-            }
-
-            VerifyFilteredMeetings();
-
-            return Task.CompletedTask;
-        }
-
-        public Task FilterMeetings(DateTime startTime, DateTime endTime, string subject)
-        {
-            long start = startTime.Ticks;
-            long end = endTime.Ticks;
-            filteredMeetings.Clear();
-
-            foreach (var meeting in meetings)
-            {
-                DateTime tutorStartTime = Convert.ToDateTime(meeting.Value.StartTime);
-                DateTime tutorEndTime = Convert.ToDateTime(meeting.Value.EndTime);
-                long tutorStart = tutorStartTime.Ticks;
-                long tutorEnd = tutorEndTime.Ticks;
-                if (meeting.Value.Subject.Equals(subject))
-                    if (start < tutorEnd && end > tutorStart)
-                        filteredMeetings.Add(meeting.Key, meeting.Value);
-            }
-
-            VerifyFilteredMeetings();
-
-            return Task.CompletedTask;
+            // Check if it was unsuccessful.
+            if (response.StatusCode.Equals(HttpStatusCode.OK) == false)
+                await DisplayError("Failed to remove meeting");
         }
         #endregion
 
-        #region Private Methods
+        #region Profile Methods
+        public async Task<Dictionary<string, Profile>> GetProfiles()
+        {
+            Dictionary<string, Profile> profiles = new Dictionary<string, Profile>();
+            FirebaseResponse response = await client.GetAsync(@"Profiles/");
+            string model = response.Body.ToString();
+            if (model.Equals("null") == false)
+                profiles = JsonConvert.DeserializeObject<Dictionary<string, Profile>>(model);
+            return profiles;
+        }
+
+        public async Task Add(Profile profile)
+        {
+            // Add to database.
+            var response = await client.SetAsync($"Profiles/{profile.ID}", profile);
+
+            // Check if it was unsuccessful.
+            if (response.StatusCode.Equals(HttpStatusCode.OK) == false)
+                await DisplayError("Failed to add profile");
+        }
+
+        public async Task Remove(Profile profile)
+        {
+            // Removing from database.
+            var response = await client.DeleteAsync($"Profiles/{profile.ID}");
+
+            // Check if it was unsuccessful.
+            if (response.StatusCode.Equals(HttpStatusCode.OK) == false)
+                await DisplayError("Failed to remove profile");
+        }
+        #endregion
+
+        #region Profile Methods
+        public async Task<Dictionary<string, MeetingRating>> GetRatings()
+        {
+            Dictionary<string, MeetingRating> ratings = new Dictionary<string, MeetingRating>();
+            FirebaseResponse response = await client.GetAsync(@"Ratings/");
+            string model = response.Body.ToString();
+            if (model.Equals("null") == false)
+                ratings = JsonConvert.DeserializeObject<Dictionary<string, MeetingRating>>(model);
+            return ratings;
+        }
+
+        public async Task Add(MeetingRating rating)
+        {
+            // Add to database.
+            var response = await client.SetAsync($"Ratings/{rating.ID}", rating);
+
+            // Check if it was unsuccessful.
+            if (response.StatusCode.Equals(HttpStatusCode.OK) == false)
+                await DisplayError("Failed to add rating");
+        }
+
+        public async Task Remove(MeetingRating rating)
+        {
+            // Removing from database.
+            var response = await client.DeleteAsync($"Ratings/{rating.ID}");
+
+            // Check if it was unsuccessful.
+            if (response.StatusCode.Equals(HttpStatusCode.OK) == false)
+                await DisplayError("Failed to remove rating");
+        }
+        #endregion
+
+        #region Methods
         private async Task DisplayError(string message)
         {
             string title = "Error";
             await Application.Current.MainPage.DisplayAlert(title, message, "OK");
-        }
-
-        private void GetData()
-        {
-            FirebaseResponse response = client.Get(@"Meetings/");
-            string model = response.Body.ToString();
-            if (model.Equals("null") == false)
-                meetings = JsonConvert.DeserializeObject<Dictionary<string, Meeting>>(model);
-
-        }
-
-        private void VerifyFilteredMeetings()
-        {
-            if (filteredMeetings.Count == 0)
-            {
-                Meeting meeting = new Meeting();
-                meeting.Name = "No Meetings Found";
-                filteredMeetings.Add("Empty", meeting);
-            }  
         }
         #endregion
     }

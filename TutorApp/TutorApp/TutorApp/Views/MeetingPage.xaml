@@ -4,8 +4,13 @@
              x:Class="TutorApp.Views.MeetingPage"
              Title="{Binding Title}"
              Shell.NavBarIsVisible="True">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddMeetingCommand}" />
+        <ToolbarItem Text="Filter" Command="{Binding FilterMeetingCommand}" />
+        <ToolbarItem Text="Refresh" Command="{Binding RefreshCommand}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="10,10,10,10" VerticalOptions="Center">
             <SearchBar Placeholder="Search" Text="{Binding FilterText}" BackgroundColor="LightGray"/>
             <CollectionView ItemsSource="{Binding Meetings}"
                             SelectionMode="Single"
@@ -17,18 +22,23 @@
                         <Frame BackgroundColor="{StaticResource Primary}"                               
                                BorderColor="Black"                               
                                CornerRadius="30"
-                               Padding="10">
+                               Padding="10,0,10,0" 
+                               VerticalOptions="Center">
                             <Grid Margin="15"
                               RowSpacing="10"
                               RowDefinitions="Auto,Auto,Auto"
                               ColumnSpacing="10"
                               ColumnDefinitions="Auto,Auto,Auto">
-                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontAttributes="Bold" FontSize="Large" TextColor="AliceBlue"/>
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Subject}" FontSize="Large" TextColor="AliceBlue"/>
-                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Availability}" FontSize="Medium" TextColor="AliceBlue"/>
-                                <Label Grid.Row="1" Text="{Binding StudentName}" TextColor="AliceBlue"/>
-                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding StartTime}" TextColor="AliceBlue"/>
-                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding EndTime}" TextColor="AliceBlue"/>
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Subject}" FontSize="Large" TextColor="AliceBlue"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Availability}" FontSize="Medium" TextColor="AliceBlue"/>
+                                <Label Grid.Row="1" Grid.Column="0" Text="Tutor" FontSize="Medium" TextColor="AliceBlue"/>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Name}" FontSize="Medium" TextColor="AliceBlue"/>
+                                <Label Grid.Row="2" Grid.Column="0" Text="Student Name:" TextColor="AliceBlue"/>
+                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding StudentName}" TextColor="AliceBlue"/>
+                                <Label Grid.Row="3" Grid.Column="0" Text="Start Time:" TextColor="AliceBlue"/>
+                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding StartTime}" TextColor="AliceBlue"/>
+                                <Label Grid.Row="4" Grid.Column="0" Text="End Time:" TextColor="AliceBlue"/>
+                                <Label Grid.Row="4" Grid.Column="1" Text="{Binding EndTime}" TextColor="AliceBlue"/>
                             </Grid>
                         </Frame>
                     </DataTemplate>

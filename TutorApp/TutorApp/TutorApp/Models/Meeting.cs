@@ -2,6 +2,8 @@
 {
     public class Meeting
     {
+        public string TutorProfileID { get; set; }
+        public string StudentProfileID { get; set; }
         public string ID { get; set; }
         public string Name { get; set; }
         public string Role { get; set; }

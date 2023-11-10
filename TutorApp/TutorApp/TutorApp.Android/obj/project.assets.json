@@ -72,6 +72,18 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
+      "Plugin.CurrentActivity/2.1.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid44/Plugin.CurrentActivity.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid44/Plugin.CurrentActivity.dll": {}
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -79,6 +91,21 @@
         },
         "runtime": {
           "lib/MonoAndroid10/_._": {}
+        }
+      },
+      "Xam.Plugin.DeviceInfo/4.2.0-beta": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.CurrentActivity": "2.1.0.4"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid71/Plugin.DeviceInfo.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid71/Plugin.DeviceInfo.dll": {}
         }
       },
       "Xamarin.AndroidX.Activity/1.1.0.5": {
@@ -1041,13 +1068,28 @@
           "buildTransitive/monoandroid50/Xamarin.Google.Guava.ListenableFuture.targets": {}
         }
       },
+      "Xamarin.Rating/1.0.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Essentials": "1.6.1",
+          "Xamarin.Forms": "5.0.0.2012"
+        },
+        "compile": {
+          "lib/netstandard2.0/Rating.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Rating.dll": {}
+        }
+      },
       "TutorApp/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "FireSharp": "2.0.4",
+          "Xam.Plugin.DeviceInfo": "4.2.0-beta",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012"
+          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Rating": "1.0.0.2"
         },
         "compile": {
           "bin/placeholder/TutorApp.dll": {}
@@ -1345,6 +1387,20 @@
         "tools/install.ps1"
       ]
     },
+    "Plugin.CurrentActivity/2.1.0.4": {
+      "sha512": "m8xaXvXUzBSqP6xRe5PeIG347WxsG/VWrZta7MnPpSvNuPf0RLB/S49UCCQyBKSsfu053+apvYm14BC7GU6Zzg==",
+      "type": "package",
+      "path": "plugin.currentactivity/2.1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid44/Plugin.CurrentActivity.dll",
+        "lib/monoandroid44/Plugin.CurrentActivity.xml",
+        "plugin.currentactivity.2.1.0.4.nupkg.sha512",
+        "plugin.currentactivity.nuspec",
+        "readme.txt"
+      ]
+    },
     "System.Numerics.Vectors/4.5.0": {
       "sha512": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
       "type": "package",
@@ -1390,6 +1446,39 @@
         "system.numerics.vectors.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Xam.Plugin.DeviceInfo/4.2.0-beta": {
+      "sha512": "N5B5UmgYkQsIcJui3A4K2sC63eWis/WQSYkE3+x6aG0FWEJ6W8Ga7mtaRKF7sLeKsJJvYZ/ZIIrnEhxu+rVlmw==",
+      "type": "package",
+      "path": "xam.plugin.deviceinfo/4.2.0-beta",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.DeviceInfo.dll",
+        "lib/monoandroid71/Plugin.DeviceInfo.pdb",
+        "lib/net45/Plugin.DeviceInfo.dll",
+        "lib/net45/Plugin.DeviceInfo.pdb",
+        "lib/netstandard1.0/Plugin.DeviceInfo.dll",
+        "lib/netstandard1.0/Plugin.DeviceInfo.pdb",
+        "lib/netstandard2.0/Plugin.DeviceInfo.dll",
+        "lib/netstandard2.0/Plugin.DeviceInfo.pdb",
+        "lib/tizen40/Plugin.DeviceInfo.dll",
+        "lib/tizen40/Plugin.DeviceInfo.pdb",
+        "lib/uap10.0.16299/Plugin.DeviceInfo.dll",
+        "lib/uap10.0.16299/Plugin.DeviceInfo.pdb",
+        "lib/uap10.0.16299/Plugin.DeviceInfo.pri",
+        "lib/xamarinios10/Plugin.DeviceInfo.dll",
+        "lib/xamarinios10/Plugin.DeviceInfo.pdb",
+        "lib/xamarinmac20/Plugin.DeviceInfo.dll",
+        "lib/xamarinmac20/Plugin.DeviceInfo.pdb",
+        "lib/xamarintvos10/Plugin.DeviceInfo.dll",
+        "lib/xamarintvos10/Plugin.DeviceInfo.pdb",
+        "lib/xamarinwatchos10/Plugin.DeviceInfo.dll",
+        "lib/xamarinwatchos10/Plugin.DeviceInfo.pdb",
+        "readme.txt",
+        "xam.plugin.deviceinfo.4.2.0-beta.nupkg.sha512",
+        "xam.plugin.deviceinfo.nuspec"
       ]
     },
     "Xamarin.AndroidX.Activity/1.1.0.5": {
@@ -2483,6 +2572,18 @@
         "lib/monoandroid50/Xamarin.Google.Guava.ListenableFuture.dll",
         "xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
         "xamarin.google.guava.listenablefuture.nuspec"
+      ]
+    },
+    "Xamarin.Rating/1.0.0.2": {
+      "sha512": "udVmz8Y+GeqMHG6zgAlNnvenyWv/PrwKZnw+8dqh9h7t/IeBGm2xtNpjBug+K9vFl+fjFSODwP+Xgut+yILI8Q==",
+      "type": "package",
+      "path": "xamarin.rating/1.0.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Rating.dll",
+        "xamarin.rating.1.0.0.2.nupkg.sha512",
+        "xamarin.rating.nuspec"
       ]
     },
     "TutorApp/1.0.0": {

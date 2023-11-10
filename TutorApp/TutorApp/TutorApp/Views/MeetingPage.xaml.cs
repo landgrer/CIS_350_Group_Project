@@ -12,7 +12,6 @@ namespace TutorApp.Views
         public MeetingPage()
         {
             InitializeComponent();
-
             BindingContext = _viewModel = new MeetingViewModel();
         }
 

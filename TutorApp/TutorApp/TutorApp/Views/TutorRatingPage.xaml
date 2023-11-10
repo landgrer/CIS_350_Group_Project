@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fRating="clr-namespace:Rating;assembly=Rating"
+             x:Class="TutorApp.Views.TutorRatingPage"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="True">
+    <ContentPage.Content>
+        <StackLayout Padding="10,10,10,10" VerticalOptions="Center">
+            <Label Text="Tutor" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Label Text="{Binding TutorName}" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Label Text="Rate your experience" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large"/>
+            <fRating:RatingBar SelectedStarValue="{Binding Star}"
+                               ImageHeight="50"
+                               ImageWidth="50"
+                               HorizontalOptions="Center"
+                               FlowDirection="LeftToRight"
+                               EmptyStarImage="EmptyStar"
+                               FillStarImage="FilledStar">                
+            </fRating:RatingBar>
+            <Label Text="Comment on meeting" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Editor Text="{Binding Comment}" BackgroundColor="LightBlue" HeightRequest="200"/>
+            <Button VerticalOptions="Center" Text="Submit" BackgroundColor="DarkBlue" Command="{Binding SubmitCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

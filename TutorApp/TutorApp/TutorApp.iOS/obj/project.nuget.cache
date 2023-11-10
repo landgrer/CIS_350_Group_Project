@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zqbw1fKwAeyeMT6ikxZcXxewm9d+i9yj8ss1FRLKIDXpZXwkWgepXWO+FMYvZY3w8/NNbI/SzQZiL7XuhJeqsQ==",
+  "dgSpecHash": "S4u19O86Ke2OdLxmjWVFYa2Iq678pnNZ7rA/9asWJUiM1vjbCtdTyocua7gQLqcGmpksjXYls/I6j4OVCgMKkQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.iOS\\TutorApp.iOS.csproj",
   "expectedPackageFiles": [
@@ -11,8 +11,10 @@
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\microsoft.net.http\\2.2.28\\microsoft.net.http.2.2.28.nupkg.sha512",
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\newtonsoft.json\\6.0.4\\newtonsoft.json.6.0.4.nupkg.sha512",
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\xam.plugin.deviceinfo\\4.2.0-beta\\xam.plugin.deviceinfo.4.2.0-beta.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\xamarin.rating\\1.0.0.2\\xamarin.rating.1.0.0.2.nupkg.sha512"
   ],
   "logs": []
 }

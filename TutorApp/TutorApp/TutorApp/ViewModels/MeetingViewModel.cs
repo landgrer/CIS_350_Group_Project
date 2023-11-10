@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading.Tasks;
 using TutorApp.Models;
 using TutorApp.Services;
@@ -13,8 +12,11 @@ namespace TutorApp.ViewModels
     public class MeetingViewModel : BaseViewModel
     {
         #region Properties
-        private FirebaseTool database = FirebaseTool.GetInstance();
-        public Command MeetingSelectedCommand { get; set; }
+        private DatabaseClient database = DatabaseClient.GetInstance();
+        public Command MeetingSelectedCommand { get; }
+        public Command AddMeetingCommand { get; }
+        public Command FilterMeetingCommand { get; }
+        public Command RefreshCommand { get; }
 
         private Meeting _selectedMeeting = new Meeting();
         public Meeting SelectedMeeting
@@ -23,7 +25,7 @@ namespace TutorApp.ViewModels
             set { SetProperty(ref _selectedMeeting, value); }
         }
 
-        private string _filterText = string.Empty;
+        private string _filterText;
         public string FilterText
         {
             get { return _filterText; }
@@ -43,24 +45,25 @@ namespace TutorApp.ViewModels
         {
             Title = "Browse";
             MeetingSelectedCommand = new Command(OnCollectionViewSelectionChanged);
-            SelectedMeeting = Meetings.FirstOrDefault();
+            AddMeetingCommand = new Command(OnAddMeeting);
+            FilterMeetingCommand = new Command(OnFilterMeetings);
+            RefreshCommand = new Command(OnRefresh);
         }
         #endregion
 
         #region Events
         public async void OnAppearing()
         {
-            Meetings.Clear();
-            foreach (var meeting in await database.GetMeetings())
-                Meetings.Add(meeting.Value);
+            await GetMeetings();
         }
 
-        private void OnTextChanged()
+        private async void OnTextChanged()
         {
-            var searchName = FilterText;
+            await GetMeetings();
 
-            if (string.IsNullOrWhiteSpace(searchName))
-                searchName = string.Empty;
+            string searchName = FilterText;
+            if (string.IsNullOrWhiteSpace(searchName) || string.IsNullOrEmpty(searchName))
+                return;
 
             searchName = searchName.ToLower();
 
@@ -70,7 +73,6 @@ namespace TutorApp.ViewModels
                     if (item.Name.ToLower().Contains(searchName))
                         filteredMeetings.Add(item);
 
-            OnAppearing();
             if (string.IsNullOrEmpty(searchName) == false)
             {
                 Meetings.Clear();
@@ -81,45 +83,112 @@ namespace TutorApp.ViewModels
 
         private async void OnCollectionViewSelectionChanged(object obj)
         {
+            string[] actions = GetActions();
+
+            if (actions.Length > 0)
+            {
+                string name = SelectedMeeting.Name;
+                string availability = SelectedMeeting.Availability;
+                string startTime = SelectedMeeting.StartTime;
+                string endTime = SelectedMeeting.EndTime;
+                string title = "Select Meeting Action";
+                string action = await Application.Current.MainPage.DisplayActionSheet(title, "Cancel", null, actions);
+                switch (action)
+                {
+                    case "Schedule":
+                        ScheduleMeetingPage schedulePage = new ScheduleMeetingPage(SelectedMeeting);
+                        await Shell.Current.Navigation.PushAsync(schedulePage);
+                        break;
+                    case "Cancle Meeting":
+                        await CancelMeeting();
+                        await GetMeetings();
+                        break;
+                    case "Rate":
+                        TutorRatingPage tutorRatingPage = new TutorRatingPage(SelectedMeeting);
+                        await Shell.Current.Navigation.PushAsync(tutorRatingPage);
+                        break;
+                    case "Delete":
+                        title = "Are you sure you want to delete?";
+                        string message = $"{name}  ({availability})\nStart: {startTime}\nEnd:   {endTime}";
+                        bool delete = await Application.Current.MainPage.DisplayAlert(title, message, "Delete", "Cancel");
+                        if (delete)
+                        {
+                            await database.RemoveMeeting(SelectedMeeting);
+                            await GetMeetings();
+                        }
+                        break;
+                }
+            }
+        }
+
+        private async void OnAddMeeting(object obj)
+        {
+            await Shell.Current.GoToAsync(nameof(AddMeetingPage));
+        }
+
+        private async void OnFilterMeetings(object obj)
+        {
+            await Shell.Current.GoToAsync(nameof(FilterMeetingPage));
+        }
+
+        private async void OnRefresh(object obj)
+        {
+            await database.ClearFilteredMeetings();
+            await GetMeetings();
+        }
+        #endregion
+
+        #region Methods
+        private async Task GetMeetings()
+        {
+            Meetings.Clear();
+            var meetings = await database.GetMeetings();
+            if (meetings.Count > 0)
+                foreach (var meeting in meetings)
+                    Meetings.Add(meeting.Value);
+        }
+
+        private string[] GetActions()
+        {
             long time = DateTime.Now.Ticks;
             long endTimeTicks = Convert.ToDateTime(SelectedMeeting.EndTime).Ticks;
+            string attendyID = SelectedMeeting.TutorProfileID;
+            string profileID = database.ProfileID;
+            bool userAccess = attendyID.Equals(profileID) || attendyID.Equals(profileID);
+            bool pastScheduling = endTimeTicks <= time;
+            bool available = SelectedMeeting.Availability.Equals("Open");
+            List<string> actions = new List<string>();
+
+            // Meeting can be scheduled
+            if (pastScheduling == false && available)
+                actions.Add("Schedule");
+            // Meeting can be cancled
+            if (pastScheduling == false && available == false && userAccess)
+                actions.Add("Cancle Meeting");
+            // Meeting was scheduled and has finished
+            if (pastScheduling && userAccess && available == false)
+                actions.Add("Rate");
+            // Meeting is outdated
+            if (pastScheduling && userAccess)
+                actions.Add("Delete");
             
-            if (endTimeTicks <= time)
-                await DeleteSelectedMeeting();
-            else if (SelectedMeeting.Availability.Equals("Open"))
-                await ScheduleSelectedMeeting();
-        }
-
-        private async Task DeleteSelectedMeeting()
+            return actions.ToArray();
+        }   
+        
+        private async Task CancelMeeting()
         {
-            string name = SelectedMeeting.Name;
-            string availability = SelectedMeeting.Availability;
-            string startTime = SelectedMeeting.StartTime;
-            string endTime = SelectedMeeting.EndTime;
-            string title = "Meeting Outdated, Delete?";
-            string message = $"{name}  ({availability})\nStart: {startTime}\nEnd:   {endTime}";
-            bool delete = await Application.Current.MainPage.DisplayAlert(title, message, "Delete", "Cancel");
-            if (delete)
+            Meeting meeting = new Meeting()
             {
-                await database.Remove(SelectedMeeting);
-                OnAppearing();
-            }
-        }
-
-        private async Task ScheduleSelectedMeeting()
-        {
-            string name = SelectedMeeting.Name;
-            string availability = SelectedMeeting.Availability;
-            string startTime = SelectedMeeting.StartTime;
-            string endTime = SelectedMeeting.EndTime;
-            string title = "Schedule Meeting?";
-            string message = $"{name}  ({availability})\nStart: {startTime}\nEnd:   {endTime}\n";
-            bool schedule = await Application.Current.MainPage.DisplayAlert(title, message, "Schedule", "Cancel");
-            if (schedule)
-            {
-                OpeningPage openingView = new OpeningPage(SelectedMeeting);
-                await Shell.Current.Navigation.PushAsync(openingView);
-            }
+                TutorProfileID = SelectedMeeting.TutorProfileID,
+                Name = SelectedMeeting.Name,
+                Availability = "Open",
+                Role = "Tutor",
+                Subject = SelectedMeeting.Subject,
+                StartTime = SelectedMeeting.StartTime,
+                EndTime = SelectedMeeting.EndTime
+            };
+            await database.RemoveMeeting(SelectedMeeting);
+            await database.AddMeeting(meeting);
         }
         #endregion
     }

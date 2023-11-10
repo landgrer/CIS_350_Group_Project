@@ -142,4 +142,10 @@
       <Name>TutorApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EmptyStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FilledStar.png" />
+  </ItemGroup>
 </Project>

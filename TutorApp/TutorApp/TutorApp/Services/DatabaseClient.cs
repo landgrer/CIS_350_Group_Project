@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.DeviceInfo;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TutorApp.Models;
@@ -7,91 +8,189 @@ namespace TutorApp.Services
 {
     public class DatabaseClient
     {
-        private static readonly DatabaseClient instance = new DatabaseClient();
-        private bool filter = false;
-        private List<Meeting> meetings = new List<Meeting>();
-        private List<Meeting> filteredMeetings = new List<Meeting>();
+        public string ProfileID { get; private set; } = CrossDeviceInfo.Current.Id;
+        public Profile User { get; private set; } = new Profile();
 
-        public DatabaseClient()
-        {
-            meetings = FakeDataBase.Meetings;
-        }
+        private FirebaseTool firebase = new FirebaseTool();
+        private Dictionary<string, Meeting> meetings = new Dictionary<string, Meeting>();
+        private Dictionary<string, Meeting> filteredMeetings = new Dictionary<string, Meeting>();
+        private Dictionary<string, Profile> profiles = new Dictionary<string, Profile>();
+        private Dictionary<string, MeetingRating> ratings = new Dictionary<string, MeetingRating>();
+        private static DatabaseClient instance = new DatabaseClient();
 
         public static DatabaseClient GetInstance()
         {
             return instance;
         }
 
-        public Task AddMeeting(Meeting meeting)
+        #region Meeting Methods
+        public async Task AddMeeting(Meeting meeting)
         {
-            meetings.Add(meeting);
-            return Task.CompletedTask;
+            // This creates a unique ID.
+            string uniqueID = meeting.ID = Guid.NewGuid().ToString("N");
+
+            // Add meeting to Firebase and Dictionary.
+            await firebase.Add(meeting);
+            meetings.Add(uniqueID, meeting);
+
+            // New data introduced, clear filtered data.
+            filteredMeetings.Clear();
         }
 
-        public Task RemoveMeeting(Meeting person)
+        public async Task RemoveMeeting(Meeting meeting)
         {
-            meetings.Remove(person);
-            return Task.CompletedTask;
+            // Remove meeting from Firebase and Dictonary.
+            await firebase.Remove(meeting);
+            meetings.Remove(meeting.ID);
+
+            // Data changed, clear filtered data.
+            filteredMeetings.Clear();
         }
 
-        public Task<List<Meeting>> GetMeetings()
+        public async Task<Dictionary<string, Meeting>> GetMeetings()
         {
-            if (filter)
-                return Task.FromResult(filteredMeetings);
-            else
-                return Task.FromResult(meetings);
+            if (meetings.Count == 0)
+                meetings = await firebase.GetMeetings();
+            
+            if (filteredMeetings.Count > 0)
+                return filteredMeetings;
+            
+            return meetings;
         }
 
-        public Task ClearFilter()
+        public Task ClearFilteredMeetings()
         {
-            filter = false;
             filteredMeetings.Clear();
             return Task.CompletedTask;
         }
 
-        public Task FilterMeetings(string subject)
+        public Task<bool> FilterMeetings(string subject)
         {
-            filter = true;
             filteredMeetings.Clear();
-            foreach (Meeting meeting in meetings)
-                if (meeting.Subject.Equals(subject))
-                    filteredMeetings.Add(meeting);
-            return Task.CompletedTask;
+            foreach (var meeting in meetings)
+                if (meeting.Value.Subject.Equals(subject))
+                    filteredMeetings.Add(meeting.Key, meeting.Value);
+            bool filtered = filteredMeetings.Count > 0;
+            return Task.FromResult(filtered);
         }
 
-        public Task FilterMeetings(DateTime startTime, DateTime endTime)
+        public Task<bool> FilterMeetings(DateTime startTime, DateTime endTime)
         {
-            filter = true;
             long start = startTime.Ticks;
             long end = endTime.Ticks;
             filteredMeetings.Clear();
-            foreach (Meeting meeting in this.meetings)
+            foreach (var meeting in meetings)
             {
-                DateTime tutorStartTime = Convert.ToDateTime(meeting.StartTime);
+                DateTime tutorStartTime = Convert.ToDateTime(meeting.Value.StartTime);
+                DateTime tutorEndTime = Convert.ToDateTime(meeting.Value.StartTime);
                 long tutorStart = tutorStartTime.Ticks;
-                long tutorEnd = tutorStartTime.Ticks;
+                long tutorEnd = tutorEndTime.Ticks;
                 if (start < tutorEnd && end > tutorStart)
-                    filteredMeetings.Add(meeting);
+                    filteredMeetings.Add(meeting.Key, meeting.Value);
             }
-            return Task.CompletedTask;
+            bool filtered = filteredMeetings.Count > 0;
+            return Task.FromResult(filtered);
         }
 
-        public Task FilterMeetings(DateTime startTime, DateTime endTime, string subject)
+        public Task<bool> FilterMeetings(DateTime startTime, DateTime endTime, string subject)
         {
-            filter = true;
             long start = startTime.Ticks;
             long end = endTime.Ticks;
             filteredMeetings.Clear();
-            foreach (Meeting meeting in this.meetings)
+            foreach (var meeting in meetings)
             {
-                DateTime tutorStartTime = Convert.ToDateTime(meeting.StartTime);
+                DateTime tutorStartTime = Convert.ToDateTime(meeting.Value.StartTime);
+                DateTime tutorEndTime = Convert.ToDateTime(meeting.Value.StartTime);
                 long tutorStart = tutorStartTime.Ticks;
-                long tutorEnd = tutorStartTime.Ticks;
-                if (meeting.Subject.Equals(subject))
+                long tutorEnd = tutorEndTime.Ticks;
+                if (meeting.Value.Subject.Equals(subject))
                     if (start < tutorEnd && end > tutorStart)
-                        filteredMeetings.Add(meeting);
+                        filteredMeetings.Add(meeting.Key, meeting.Value);
             }
-            return Task.CompletedTask;
+            bool filtered = filteredMeetings.Count > 0;
+            return Task.FromResult(filtered);
         }
+        #endregion
+
+        #region Profile Methods
+        public async Task<bool> HasUserProfile()
+        {
+            await GetProfiles();
+
+            if (profiles.TryGetValue(ProfileID, out Profile profile))
+                User = profile;
+
+            bool success = ProfileID.Equals(User.ID);
+
+            return success;
+        }
+
+        public async Task<Dictionary<string, Profile>> GetProfiles()
+        {
+            if (profiles.Count == 0)
+                profiles = await firebase.GetProfiles();
+
+            return profiles;
+        }
+
+        public async Task AddProfile(string firstName, string lastName)
+        {
+            // New profile.
+            Profile profile = new Profile()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                ID = ProfileID
+            };
+
+            // Remove existing profile.
+            await RemoveProfile();
+
+            // Add to Firebase and Dictionary.
+            await firebase.Add(profile);
+            profiles.Add(ProfileID, profile);
+        }
+
+        public async Task RemoveProfile()
+        {
+            if (await HasUserProfile())
+            {
+                // Remove Profile from Firebase and Dictonary.
+                await firebase.Remove(User);
+                profiles.Remove(ProfileID);
+            }
+        }
+        #endregion
+
+        #region Rating Methods
+        public async Task<Dictionary<string, MeetingRating>> GetRatings()
+        {
+            if (ratings.Count == 0)
+                ratings = await firebase.GetRatings();
+
+            return ratings;
+        }
+
+        public async Task AddRating(MeetingRating rating)
+        {
+            // This creates a unique ID.
+            string uniqueID = rating.ID = Guid.NewGuid().ToString("N");
+
+            // Verify Rating dose not already exist.
+            if (ratings.ContainsKey(rating.ID))
+                await RemoveRating(rating);
+
+            // Add to Firebase and Dictionary.
+            await firebase.Add(rating);
+            ratings.Add(uniqueID, rating);
+        }
+
+        public async Task RemoveRating(MeetingRating rating)
+        {
+            // Remove Rating from Firebase and Dictonary.
+            await firebase.Remove(rating);
+            ratings.Remove(rating.ID);
+        }
+        #endregion
     }
 }

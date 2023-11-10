@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutorApp.Views.ProfilePage"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="True"
+             Shell.TabBarIsVisible="{Binding TabBar}">
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Label Text="Device ID" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Label Text="{Binding DeviceID}" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Label Text="" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Label Text="First Name" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Entry Placeholder="Enter your first name" Text="{Binding FirstName}"/>
+            <Label Text="Last Name" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Entry Placeholder="Enter your last name" Text="{Binding LastName}"/>
+            <Button VerticalOptions="Center" Text="Submit" BackgroundColor="DarkBlue" Command="{Binding SubmitCommand}" />
+            <Button VerticalOptions="Center" Text="Delete" BackgroundColor="DarkBlue" Command="{Binding DeleteCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
