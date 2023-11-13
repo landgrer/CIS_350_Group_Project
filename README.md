@@ -1,7 +1,10 @@
 # CIS_350_Group_Project
 ___
 ## TutorFinder
-## Made By: Anthony Chouinard and Ryan Landgren
+## Made By: 
+___
+### Anthony Chouinard
+### Ryan Landgren
 
 ___
 
