@@ -38,7 +38,7 @@
                                                    FillStarImage="FilledStar">
                                 </fRating:RatingBar>                                
                                 <Label Grid.Row="1" Grid.Column="0" Text="{Binding TutorName}" FontAttributes="Bold" FontSize="Large" TextColor="AliceBlue"/>
-                                <BoxView Grid.Row="2" Grid.ColumnSpan="4"  Color="Black" HeightRequest="2" HorizontalOptions="Fill" />
+                                <BoxView Grid.Row="2" Grid.ColumnSpan="4"  Color="AliceBlue" HeightRequest="2" HorizontalOptions="Fill" />
                                 <Label Grid.Row="3" Grid.ColumnSpan="4" Text="{Binding Comment}" FontSize="Medium" TextColor="AliceBlue"/>
                             </Grid>
                         </Frame>
