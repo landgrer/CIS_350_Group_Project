@@ -37,3 +37,11 @@ ___
 ##### 4.1.2 Registration
 To Be Announced...
 ___
+
+##### 4.1.3 Login
+To Be Announced...
+___
+
+#### 4.2 Home
+<img src="CurrentAppHome.png" width="132" height="302">
+From here, the user can decide to search for tutors based on times available and their primary subject.
