@@ -32,6 +32,7 @@ The user will install the Tutor Finder app onto an Android platform. Once instal
 
 
 <img src="CurrentAppHome.png" width="132" height="302">
+
 ___
 
 ##### 4.1.2 Registration
