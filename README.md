@@ -37,27 +37,33 @@ ___
 
 ##### 4.1.2 Registration
 The registration for the app is based on a unique I.D. the user is assigned to their current device. The I.D. will hold the user's profile information including their name, average rating, and primary subject.
+
 ___
 
 ##### 4.1.3 Login
 The login will take the user's unique I.D. number as well as their first name and their last name in order to login. The profile information will always be saved to the unique device I.D..
+
 ___
 
 #### 4.2 Home
 <img src="CurrentAppHome.png" width="132" height="302">
 From here, the user can decide to search for tutors based on times available and their primary subject.
+
 ___
 
 ##### 4.2.1 Meeting Details
 Upon login, the user will have the ability to schedule meetings based on what is available that day. They can narrow the selection of meetings based on a filter system which will filter out different meeting times, meeting days, and the subject of the meeting.
+
 ___
 
 ##### 4.2.2 Scheduling a Meeting
 Once the user decides which meeting they would like, they must select the meeting. Upon their selection, the app will communicate with the database, and it will tell the database that the meeting is no longer open; therefore, it will become unavailable for future selection.
+
 ___
 
 ##### 4.2.3 Leaving a Rating
 After a meeting, the user will have the ability to leave comments and ratings about the tutor they met with. These comments and ratings will be saved to that tutor's profile, and they will be readily available for the public to see. The ratings are based off a 5 star measurement, and they can increase or decrease by 0.5 stars.
+
 ___
 
 #### 4.3 Server Side
