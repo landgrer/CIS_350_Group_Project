@@ -16,9 +16,21 @@ With the number of college undergraduate students increasing yearly, the demand 
 ___
 ### 3. Architectural Design
 ___
+Our TutorFinder app is based off the client-server architecture. Our users must install the app onto an Android Platform as it is built upon an Android User Interface. The user will receive information from our Firebase Database about other users. This information includes whether or not they are a tutor or a student. The database stores the users' primary subject, available times, their ratings based on reviews from other users, and the users' name.
 #### 3.1 Class Diagram
 ![Alt text](CIS350ProjectClassDiagram-v2.png)
 ___
 #### 3.2 Sequence Diagram
 ![Alt text](SequenceDiagram-1.png)
+___
+### 4. User Guide / Implementation
+___
+#### 4.1 Client Side
+___
+##### 4.1.1 Starting the App
+The user will install the Tutor Finder app onto an Android platform. Once installed, the user will have the TutorFinder app icon appear onto their home screen. Upon start up, the user will be greeted with different tabs of which all do different functions for the user. One tab searches amongst a list of available tutors. Another tab will allow the user to filter through different available users based on different criteria.
+![Alt text](CurrentAppHome.png)
+___
+##### 4.1.2 Registration
+To Be Announced...
 ___
