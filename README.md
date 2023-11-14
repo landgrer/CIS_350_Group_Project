@@ -29,6 +29,7 @@ ___
 ___
 ##### 4.1.1 Starting the App
 The user will install the Tutor Finder app onto an Android platform. Once installed, the user will have the TutorFinder app icon appear onto their home screen. Upon start up, the user will be greeted with different tabs of which all do different functions for the user. One tab searches amongst a list of available tutors. Another tab will allow the user to filter through different available users based on different criteria.
+
 <img src="CurrentAppHome.png" width="132" height="302">
 ___
 
