@@ -35,11 +35,11 @@ The user will install the Tutor Finder app onto an Android platform. Once instal
 ___
 
 ##### 4.1.2 Registration
-To Be Announced...
+The registration for the app is based on a unique I.D. the user is assigned to their current device. The I.D. will hold the user's profile information including their name, average rating, and primary subject.
 ___
 
 ##### 4.1.3 Login
-To Be Announced...
+The login will take 
 ___
 
 #### 4.2 Home
