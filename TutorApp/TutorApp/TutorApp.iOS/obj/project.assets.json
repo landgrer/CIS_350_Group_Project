@@ -246,8 +246,8 @@
         "dependencies": {
           "FireSharp": "2.0.4",
           "Xam.Plugin.DeviceInfo": "4.2.0-beta",
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Essentials": "1.8.0",
+          "Xamarin.Forms": "5.0.0.2622",
           "Xamarin.Rating": "1.0.0.2"
         },
         "compile": {
@@ -503,8 +503,8 @@
         "dependencies": {
           "FireSharp": "2.0.4",
           "Xam.Plugin.DeviceInfo": "4.2.0-beta",
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Essentials": "1.8.0",
+          "Xamarin.Forms": "5.0.0.2622",
           "Xamarin.Rating": "1.0.0.2"
         },
         "compile": {
@@ -760,8 +760,8 @@
         "dependencies": {
           "FireSharp": "2.0.4",
           "Xam.Plugin.DeviceInfo": "4.2.0-beta",
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Essentials": "1.8.0",
+          "Xamarin.Forms": "5.0.0.2622",
           "Xamarin.Rating": "1.0.0.2"
         },
         "compile": {
@@ -1017,8 +1017,8 @@
         "dependencies": {
           "FireSharp": "2.0.4",
           "Xam.Plugin.DeviceInfo": "4.2.0-beta",
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Essentials": "1.8.0",
+          "Xamarin.Forms": "5.0.0.2622",
           "Xamarin.Rating": "1.0.0.2"
         },
         "compile": {
@@ -1754,5 +1754,33 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Essentials from 1.8.0 to 1.6.1. Reference the package directly from the project to select a different version. \r\n TutorApp.iOS -> TutorApp -> Xamarin.Essentials (>= 1.8.0) \r\n TutorApp.iOS -> Xamarin.Essentials (>= 1.6.1)",
+      "libraryId": "Xamarin.Essentials",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2622 to 5.0.0.2012. Reference the package directly from the project to select a different version. \r\n TutorApp.iOS -> TutorApp -> Xamarin.Forms (>= 5.0.0.2622) \r\n TutorApp.iOS -> Xamarin.Forms (>= 5.0.0.2012)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }

@@ -12,8 +12,8 @@
           "FireSharp": "2.0.4",
           "NETStandard.Library": "2.0.3",
           "Xam.Plugin.DeviceInfo": "4.2.0-beta",
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Essentials": "1.8.0",
+          "Xamarin.Forms": "5.0.0.2622",
           "Xamarin.Rating": "1.0.0.2"
         },
         "runtime": {
@@ -104,7 +104,7 @@
           }
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xamarin.Essentials/1.8.0": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
         },
@@ -115,26 +115,26 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2012": {
+      "Xamarin.Forms/5.0.0.2622": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "5.0.0.671"
+            "fileVersion": "5.0.0.999"
           },
           "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "5.0.0.671"
+            "fileVersion": "5.0.0.999"
           },
           "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "5.0.0.671"
+            "fileVersion": "5.0.0.999"
           }
         }
       },
       "Xamarin.Rating/1.0.0.2": {
         "dependencies": {
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012"
+          "Xamarin.Essentials": "1.8.0",
+          "Xamarin.Forms": "5.0.0.2622"
         },
         "runtime": {
           "lib/netstandard2.0/Rating.dll": {
@@ -221,19 +221,19 @@
       "path": "xam.plugin.deviceinfo/4.2.0-beta",
       "hashPath": "xam.plugin.deviceinfo.4.2.0-beta.nupkg.sha512"
     },
-    "Xamarin.Essentials/1.6.1": {
+    "Xamarin.Essentials/1.8.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gG1Bp4j4bpJQ0dp9MeBJQJ9c8xULauIlhc7Cx5Qw4J2K1c+4Glq5n+gkb9Pm0UA/CevXVqLK5ZXmZkuYI52FgA==",
-      "path": "xamarin.essentials/1.6.1",
-      "hashPath": "xamarin.essentials.1.6.1.nupkg.sha512"
+      "sha512": "sha512-g1yB0CkX7BVOx84P0SLm8guypbEfigqjddZsI9KgJzba6yRRcekBqDp6YTT1hO8ZcFcW8VZbsymejTJftJoQyg==",
+      "path": "xamarin.essentials/1.8.0",
+      "hashPath": "xamarin.essentials.1.8.0.nupkg.sha512"
     },
-    "Xamarin.Forms/5.0.0.2012": {
+    "Xamarin.Forms/5.0.0.2622": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Rqc6xvWR/sf+Db5+qRCFmuYTWVp04QWRfwPto2/JHbShSy4Ed53Q2jpoFzsoloXkJA6saD236PlaWAhT6vI4gw==",
-      "path": "xamarin.forms/5.0.0.2012",
-      "hashPath": "xamarin.forms.5.0.0.2012.nupkg.sha512"
+      "sha512": "sha512-vuhBbYbYM2fir0HkKeWBt3r+KzfJmXQQj4SlRYqRD/3MG9WS385T2VPuvakXMKgsGEkamaRyZacQ8ZPdac6cpA==",
+      "path": "xamarin.forms/5.0.0.2622",
+      "hashPath": "xamarin.forms.5.0.0.2622.nupkg.sha512"
     },
     "Xamarin.Rating/1.0.0.2": {
       "type": "package",

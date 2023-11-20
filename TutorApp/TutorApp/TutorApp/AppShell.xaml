@@ -32,6 +32,6 @@
     <TabBar>
         <ShellContent Title="Profile" Icon="icon_about.png" Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" />
         <ShellContent Title="Reviews" Icon="Review.png" Route="MeetingReviewPage" ContentTemplate="{DataTemplate local:MeetingReviewPage}" />
-        <ShellContent Title="Search" Icon="icon_feed.png" Route="MeetingPage" ContentTemplate="{DataTemplate local:MeetingPage}" />
+        <ShellContent Title="Search" Icon="Search.png" Route="MeetingPage" ContentTemplate="{DataTemplate local:MeetingPage}" />
     </TabBar>
 </Shell>

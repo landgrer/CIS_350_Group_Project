@@ -69,3 +69,4 @@ C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\Tut
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp.iOS\obj\iPhone\Debug\TutorApp.iOS.csproj.CopyComplete
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp.iOS\obj\iPhone\Debug\TutorApp.iOS.exe
 C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp.iOS\obj\iPhone\Debug\TutorApp.iOS.pdb
+C:\Users\anthony.chouinard\source\GitHubRepos\CIS_350_Group_Project\TutorApp\TutorApp\TutorApp.iOS\bin\iPhone\Debug\Rating.dll
