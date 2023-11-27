@@ -34,7 +34,7 @@ namespace TutorApp.Services
             meetings.Add(uniqueID, meeting);
 
             // New data introduced, clear filtered data.
-            filteredMeetings.Clear();
+            filteredMeetings.Clear(); 
         }
 
         public async Task RemoveMeeting(Meeting meeting)

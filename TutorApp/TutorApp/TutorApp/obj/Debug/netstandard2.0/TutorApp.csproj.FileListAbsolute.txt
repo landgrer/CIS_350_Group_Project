@@ -58,3 +58,4 @@ C:\Users\anthony.chouinard\source\GithubRepos\TutorApp\TutorApp\TutorApp\obj\Deb
 C:\Users\anthony.chouinard\source\GithubRepos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.dll
 C:\Users\anthony.chouinard\source\GithubRepos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\ref\TutorApp.dll
 C:\Users\anthony.chouinard\source\GithubRepos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.pdb
+C:\Users\anthony.chouinard\source\GithubRepos\TutorApp\TutorApp\TutorApp\obj\Debug\netstandard2.0\TutorApp.csproj.AssemblyReference.cache
