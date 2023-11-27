@@ -7,7 +7,7 @@ jobs:
   Practice:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Run a multi-line script
@@ -25,7 +25,7 @@ jobs:
   Android:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: Android
       run: |
         cd TutorApp
@@ -36,7 +36,7 @@ jobs:
   iOS:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: iOS
       run: |
         cd TutorApp
