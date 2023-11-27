@@ -5,7 +5,7 @@ on:
 
 jobs:      
   Practice:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
@@ -23,7 +23,7 @@ jobs:
         ls
 
   Android:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
     - name: Android
@@ -34,7 +34,7 @@ jobs:
         msbuild TutorApp.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
         
   iOS:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
     - name: iOS
