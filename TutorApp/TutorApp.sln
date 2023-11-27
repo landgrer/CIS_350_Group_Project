@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutorApp.Android", "TutorAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutorApp.iOS", "TutorApp\TutorApp.iOS\TutorApp.iOS.csproj", "{A7E7C77E-3CBD-4E07-AE75-A74BC54BC092}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutorApp", "TutorApp\TutorApp\TutorApp.csproj", "{8B90ABC8-FA57-422C-8540-CB902113B45A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorApp", "TutorApp\TutorApp\TutorApp.csproj", "{8B90ABC8-FA57-422C-8540-CB902113B45A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

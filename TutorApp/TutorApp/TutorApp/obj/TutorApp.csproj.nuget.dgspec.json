@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj": {}
+    "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj": {
+    "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj",
+        "projectUniqueName": "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj",
         "projectName": "TutorApp",
-        "projectPath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj",
+        "projectPath": "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj",
         "packagesPath": "C:\\Users\\anthony.chouinard\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp\\obj\\",
+        "outputPath": "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Iy2ohefkm1bWwAuR8DWzEiVwUyKdlRIT1KuyPbxCuVDPQl/aRYB4VF0fO+UghsTsDuuzim8W9rLsnVi/tGqPSw==",
+  "dgSpecHash": "WOMqvAf5eY5LovIwPkgzseGkypuLd+MdWQtXa87Dz9uxfRjy1fjlsFEdrRPDkldmP8EHNXf/rZvF1weOzD634w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.Android\\TutorApp.Android.csproj",
+  "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp.Android\\TutorApp.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\firesharp\\2.0.4\\firesharp.2.0.4.nupkg.sha512",
     "C:\\Users\\anthony.chouinard\\.nuget\\packages\\microsoft.bcl\\1.1.9\\microsoft.bcl.1.1.9.nupkg.sha512",

@@ -1,0 +1,18 @@
+name: CI
+on:
+    pull_request:
+        branches:
+            -main
+jobs:
+    xamarin_test:
+        name: Run xamarin test and analyze
+        runs-on: ubuntu-latest
+        steps:
+            -uses: actions.checkout@v3
+            -uses: bradyjoslin/xamarinandroid-signedbuild-action@v1
+            with:
+                mono_version: "preview"
+                xamarin_android_version: "preview"
+            - uses: actions/upload-artifact@v2
+            with:
+                channel: "stable"

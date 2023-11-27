@@ -1696,11 +1696,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.iOS\\TutorApp.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp.iOS\\TutorApp.iOS.csproj",
       "projectName": "TutorApp.iOS",
-      "projectPath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.iOS\\TutorApp.iOS.csproj",
+      "projectPath": "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp.iOS\\TutorApp.iOS.csproj",
       "packagesPath": "C:\\Users\\anthony.chouinard\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp.iOS\\obj\\",
+      "outputPath": "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1722,8 +1722,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj": {
-              "projectPath": "C:\\Users\\anthony.chouinard\\source\\GitHubRepos\\CIS_350_Group_Project\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj"
+            "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj": {
+              "projectPath": "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\TutorApp\\TutorApp\\TutorApp.csproj"
             }
           }
         }
