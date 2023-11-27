@@ -1,18 +1,26 @@
-name: CI
 on:
     pull_request:
         branches:
             -main
-jobs:
-    xamarin_test:
-        name: Run xamarin test and analyze
-        runs-on: ubuntu-latest
-        steps:
-            -uses: actions.checkout@v3
-            -uses: bradyjoslin/xamarinandroid-signedbuild-action@v1
-            with:
-                mono_version: "preview"
-                xamarin_android_version: "preview"
-            - uses: actions/upload-artifact@v2
-            with:
-                channel: "stable"
+
+jobs:        
+  Android:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Android
+      run: |
+        cd TutorApp
+        nuget restore
+        cd TutorApp.Android
+        msbuild TutorApp.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+        
+  iOS:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: iOS
+      run: |
+        cd TutorApp
+        nuget restore
+        msbuild TutorApp.iOS/TutorApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
