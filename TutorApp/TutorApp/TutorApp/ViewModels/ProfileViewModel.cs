@@ -49,7 +49,6 @@ namespace TutorApp.ViewModels
             Title = "User Profile";
             SubmitCommand = new Command(OnSubmitClicked);
             DeleteCommand = new Command(OnDeleteClicked);
-            DeviceID = database.ProfileID;
         }
         #endregion
 

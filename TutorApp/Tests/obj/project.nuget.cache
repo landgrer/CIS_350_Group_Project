@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "ApKms+cHrGYmxlZCha53NsQR/36oOmIUeKmp3oWm2nul39RkYOssSB4AvO3wwVblGI21UEJ5yU5ds6s64vp2sw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\anthony.chouinard\\source\\GithubRepos\\TutorApp\\Tests\\Tests.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\firesharp\\2.0.4\\firesharp.2.0.4.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\microsoft.bcl\\1.1.9\\microsoft.bcl.1.1.9.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\microsoft.bcl.async\\1.0.168\\microsoft.bcl.async.1.0.168.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\microsoft.bcl.build\\1.0.14\\microsoft.bcl.build.1.0.14.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\microsoft.net.http\\2.2.28\\microsoft.net.http.2.2.28.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\mstest.testadapter\\2.1.2\\mstest.testadapter.2.1.2.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\mstest.testframework\\2.1.2\\mstest.testframework.2.1.2.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\newtonsoft.json\\6.0.4\\newtonsoft.json.6.0.4.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\xam.plugin.deviceinfo\\4.2.0-beta\\xam.plugin.deviceinfo.4.2.0-beta.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\xamarin.essentials\\1.8.0\\xamarin.essentials.1.8.0.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\xamarin.forms\\5.0.0.2622\\xamarin.forms.5.0.0.2622.nupkg.sha512",
+    "C:\\Users\\anthony.chouinard\\.nuget\\packages\\xamarin.rating\\1.0.0.2\\xamarin.rating.1.0.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
