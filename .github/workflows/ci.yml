@@ -12,17 +12,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        uses: rheuvel89/xamarin-container-action@v2
+        uses: landgrer/CIS_350_Group_Project/actions@main
         with:
           SolutionPath: src/TutorApp.Android/TutorApp.Android.csproj
           ProjectPath: src/TutorApp.sln
 
       - name: Build app
-        run: |
-          cd TutorApp
-          nuget restore
-          cd TutorApp.Android
-          msbuild TutorApp.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+        run: dotnet build -c Release --no-restore
 
   Android:
     runs-on: ubuntu-latest
