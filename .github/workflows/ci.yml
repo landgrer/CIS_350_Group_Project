@@ -12,13 +12,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        uses: landgrer/CIS_350_Group_Project/actions@main
-        with:
-          SolutionPath: src/TutorApp.Android/TutorApp.Android.csproj
-          ProjectPath: src/TutorApp.sln
 
-      - name: Build app
-        run: dotnet build -c Release --no-restore
+      - name: Setup MSBuild.exe
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: MSBuild Restor/Build
+        shell: push
+        run: msbuild /t:restore,build /maxcpucount /v:minimal /p:Configuration
 
   Android:
     runs-on: ubuntu-latest
