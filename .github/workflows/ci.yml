@@ -7,18 +7,26 @@ on:
       - main
 
 jobs:  
-  build:
-    runs-on: ubuntu-latest
+
+ build:
+    runs-on: macos-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+    - name: Set default Xamarin SDK versions
+      run: |
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.10 --android=10.2
 
-      - name: Setup MSBuild.exe
-        uses: microsoft/setup-msbuild@v1.0.2
+    - name: Setup .NET Core SDK 5.0.x
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '5.0.x'
 
-      - name: MSBuild Restor/Build
-        shell: push
-        run: msbuild /t:restore,build /maxcpucount /v:minimal /p:Configuration
+    - name: Build
+      run: |
+        cd TutorApp
+        nuget restore
+        cd TutorApp.Android
+        msbuild TutorApp.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
 
   Android:
     runs-on: ubuntu-latest
