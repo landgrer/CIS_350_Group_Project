@@ -14,11 +14,8 @@ jobs:
         uses: actions/checkout@v2
         uses: rheuvel89/xamarin-container-action@v2
         with:
-          SolutionPath: src/sample.Android/sample.Android.csproj
-          ProjectPath: src/sample.sln
-
-      - name: Build app
-        run: dotnet build -c Release --no-restore
+          SolutionPath: src/TutorApp.Android/TutorApp.Android.csproj
+          ProjectPath: src/TutorApp.sln
 
   Android:
     runs-on: ubuntu-latest
