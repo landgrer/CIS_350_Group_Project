@@ -17,6 +17,9 @@ jobs:
           SolutionPath: src/TutorApp.Android/TutorApp.Android.csproj
           ProjectPath: src/TutorApp.sln
 
+      - name: Build app
+        run: dotnet build -c Release --no-restore
+
   Android:
     runs-on: ubuntu-latest
     steps:
