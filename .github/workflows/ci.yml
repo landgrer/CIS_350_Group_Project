@@ -18,7 +18,11 @@ jobs:
           ProjectPath: src/TutorApp.sln
 
       - name: Build app
-        run: dotnet build -c Release --no-restore
+        run: |
+          cd TutorApp
+          nuget restore
+          cd TutorApp.Android
+          msbuild TutorApp.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
 
   Android:
     runs-on: ubuntu-latest
