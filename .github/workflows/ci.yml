@@ -12,11 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Setup .NET 5
-        uses: actions/setup-dotnet@v1
+        uses: rheuvel89/xamarin-container-action@v2
         with:
-          dotnet-version: '5.0.x'
+          SolutionPath: src/sample.Android/sample.Android.csproj
+          ProjectPath: src/sample.sln
 
       - name: Build app
         run: dotnet build -c Release --no-restore
