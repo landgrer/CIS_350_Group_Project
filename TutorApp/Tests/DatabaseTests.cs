@@ -78,6 +78,77 @@ namespace Tests
             // Assert
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public async Task Metting_FilterBySubject_ReturnsTrue()
+        {
+            // Arrange
+            DatabaseClient database = DatabaseClient.GetInstance();
+            string subject = "Math";
+
+            // Act
+            await database.FilterMeetings(subject);
+            var response = await database.GetMeetings();
+            bool filtered = response.Count > 0;
+            foreach (var meetingResonse in response)
+                if (meetingResonse.Value.Subject.Equals(subject) == false)
+                    filtered = false;
+
+            // Assert
+            Assert.IsTrue(filtered);
+        }
+
+        [TestMethod]
+        public async Task Metting_FilterBySubject_ReturnsFalse()
+        {
+            // Arrange
+            DatabaseClient database = DatabaseClient.GetInstance();
+            string subject = "Christmas";
+
+            // Act
+            await database.FilterMeetings(subject);
+            var response = await database.GetMeetings();
+            bool filtered = response.Count > 0;
+            foreach (var meetingResonse in response)
+                if (meetingResonse.Value.Subject.Equals(subject) == false)
+                    filtered = false;
+
+            // Assert
+            Assert.IsFalse(filtered);
+        }
+
+        [TestMethod]
+        public async Task Metting_FilterByTimeFrame_ReturnsTrue()
+        {
+            // Arrange
+            DatabaseClient database = DatabaseClient.GetInstance();
+            DateTime startTime = DateTime.Now;
+            DateTime endTime = DateTime.Now.AddHours(1);
+
+            // Act
+            await database.FilterMeetings(startTime, endTime);
+            var response = await database.GetMeetings();
+            // Only 1 meeting should be in because of Metting_Add_ReturnsTrue().
+            bool filtered = response.Count == 1;
+
+            // Assert
+            Assert.IsTrue(filtered);
+        }
+
+        [TestMethod]
+        public async Task Metting_FilterByTimeFrame_ReturnsFalse()
+        {
+            // Arrange
+            DatabaseClient database = DatabaseClient.GetInstance();
+            DateTime startTime = DateTime.Now.AddDays(1);
+            DateTime endTime = DateTime.Now.AddDays(1).AddHours(1);
+
+            // Act
+            bool filtered = await database.FilterMeetings(startTime, endTime);
+
+            // Assert
+            Assert.IsFalse(filtered);
+        }
         #endregion
 
         #region Profile Tests
