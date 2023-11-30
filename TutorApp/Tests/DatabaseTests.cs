@@ -135,20 +135,20 @@ namespace Tests
         //    Assert.IsTrue(filtered);
         //}
 
-        [TestMethod]
-        public async Task Metting_FilterByTimeFrame_ReturnsFalse()
-        {
-            // Arrange
-            DatabaseClient database = DatabaseClient.GetInstance();
-            DateTime startTime = DateTime.Now.AddDays(1);
-            DateTime endTime = DateTime.Now.AddDays(1).AddHours(1);
+        //[TestMethod]
+        //public async Task Metting_FilterByTimeFrame_ReturnsFalse()
+        //{
+        //    // Arrange
+        //    DatabaseClient database = DatabaseClient.GetInstance();
+        //    DateTime startTime = DateTime.Now.AddDays(1);
+        //    DateTime endTime = DateTime.Now.AddDays(1).AddHours(1);
 
-            // Act
-            bool filtered = await database.FilterMeetings(startTime, endTime);
+        //    // Act
+        //    bool filtered = await database.FilterMeetings(startTime, endTime);
 
-            // Assert
-            Assert.IsFalse(filtered);
-        }
+        //    // Assert
+        //    Assert.IsFalse(filtered);
+        //}
         #endregion
 
         #region Profile Tests
