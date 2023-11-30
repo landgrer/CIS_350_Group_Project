@@ -28,10 +28,12 @@ ___
 #### 4.1 Client Side
 ___
 ##### 4.1.1 Starting the App
-The user will install the Tutor Finder app onto an Android platform. Once installed, the user will have the TutorFinder app icon appear onto their home screen. Upon start up, the user will be greeted with different tabs of which all do different functions for the user. One tab searches amongst a list of available tutors. Another tab will allow the user to filter through different available users based on different criteria.
-
+The user will install the Tutor Finder app onto an Android platform. Once installed, the user will have the TutorFinder app icon appear onto their home screen. Upon start up, the user will be greeted with different tabs of which all do different functions for the user. One tab searches amongst a list of available tutors. Another tab will show the current users profile, this tab will hold their name and unique device ID. The third tab will be a reviews tab. This tab displays reviews of different tutors.
 
 <img src="ProfileScreen-1.png" width="132" height="302">
+<img src="FilterMeetingsScreen-1.png" width="132" height="302">
+<img src="ReviewListScreen-1.png" width="132" height="302">
+
 
 ___
 
