@@ -46,7 +46,7 @@ The login will take the user's unique I.D. number as well as their first name an
 ___
 
 #### 4.2 Home
-<img src="CurrentAppHome.png" width="132" height="302">
+<img src="AddMeetingScreen-1.png" width="132" height="302">
 From here, the user can decide to search for tutors based on times available and their primary subject.
 
 ___
