@@ -36,12 +36,12 @@ The user will install the Tutor Finder app onto an Android platform. Once instal
 ___
 
 ##### 4.1.2 Registration
-The registration for the app is based on a unique I.D. the user is assigned to their current device. The I.D. will hold the user's profile information including their name, average rating, and primary subject.
+The registration for the app is based on a unique I.D. the user is assigned to their current device. The I.D. will hold the user's profile information including their name, average rating, and primary subject. This information will then be saved to the database we have setup in Firebase.
 
 ___
 
 ##### 4.1.3 Login
-The login will take the user's unique I.D. number as well as their first name and their last name in order to login. The profile information will always be saved to the unique device I.D..
+The login will take the user's unique I.D. number as well as their first name and their last name in order to login. The profile information will always be saved to the unique device ID. The ID is used to ensure the users' information are stored seperately in our database.
 
 ___
 
@@ -71,15 +71,17 @@ After a meeting, the user will have the ability to leave comments and ratings ab
 ___
 
 #### 4.3 Server Side
-
+The server service we are using is Firebase. Our firebase database will hold all the information of registered users. The database holds values for different names, the IDs of the different users, the users' primary subject, and the users' ratings and reviews will be contained by the database as well.
 ___
 
 ### 5. Future Scope
+In the future, some goals for this app would be able to associate different tutors and students with specific schools. For example, we would be able to add other attributes to the users' profiles that will allow them to add which school they are apart of. Further down the line, a goal could be to add specific classes the tutors are experienced in, i.e CIS350, WRT350, EGR112.
 
+Other possibilites we had discussed in the early development stage was adding a Direct Messaging system. The idea would be for this system to work similarly to that of Facebook, Instagram, and other social media apps. A user would be able to reach out to another to communicate information associated with meetings and other information associated with tutoring.
 ___
 
 ### 6. Conclusion
-
+The goal for our app is to help students be able to succeed. Pursuing help for a difficult class can be a hard thing because students may find it hard to become part of a study group. This app can help eliminate the difficulties of finding help by creating specific, agreed to, meeting times. The students will be able to take the information on the tutors given by the app, and then the students will be able to determine if that tutor is a correct fit.
 ___
 
 ### 7. Walkthrough Video
