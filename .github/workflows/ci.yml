@@ -28,5 +28,4 @@ jobs:
       run: msbuild TutorApp\TutorApp.sln /p:Configuration=Release
 
     - name: Run Tests
-      working-directory: bin\Debug-windows-x86_64\Tests
-      run: vstest.console.exe Tests.dll
+      run: vstest.console.exe .\TutorApp\Tests\bin\Debug\Tests.dll
