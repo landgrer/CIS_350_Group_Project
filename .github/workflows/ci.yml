@@ -25,4 +25,4 @@ jobs:
       run: msbuild TutorApp\TutorApp.sln /p:Configuration=Release
 
     - name: Run Tests
-      run: msbuild TutorApp\Tests\Tests.csproj
+      run: mstest TutorApp\Tests\Tests.csproj --no-build --verbosity normal
