@@ -59,10 +59,14 @@ ___
 ##### 4.2.2 Scheduling a Meeting
 Once the user decides which meeting they would like, they must select the meeting. Upon their selection, the app will communicate with the database, and it will tell the database that the meeting is no longer open; therefore, it will become unavailable for future selection.
 
+<img src="FilterMeetingsScreen-1.png" width="132" height="302">
+
 ___
 
 ##### 4.2.3 Leaving a Rating
 After a meeting, the user will have the ability to leave comments and ratings about the tutor they met with. These comments and ratings will be saved to that tutor's profile, and they will be readily available for the public to see. The ratings are based off a 5 star measurement, and they can increase or decrease by 0.5 stars.
+
+<img src="ReviewListScreen-1.png" width="132" height="302">
 
 ___
 
