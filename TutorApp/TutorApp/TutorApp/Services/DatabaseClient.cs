@@ -23,11 +23,16 @@ namespace TutorApp.Services
             return instance;
         }
 
+        public string GetUniqueLogID()
+        {
+            return Guid.NewGuid().ToString("N");
+        }
+
         #region Meeting Methods
         public async Task AddMeeting(Meeting meeting)
         {
             // This creates a unique ID.
-            string uniqueID = meeting.ID = Guid.NewGuid().ToString("N");
+            string uniqueID = meeting.ID = GetUniqueLogID();
 
             // Add meeting to Firebase and Dictionary.
             await firebase.Add(meeting);
@@ -117,6 +122,7 @@ namespace TutorApp.Services
         {
             await GetProfiles();
 
+            User = new Profile();
             if (profiles.TryGetValue(DeviceID, out Profile profile))
                 User = profile;
 
@@ -174,7 +180,7 @@ namespace TutorApp.Services
         public async Task AddRating(MeetingRating rating)
         {
             // This creates a unique ID.
-            string uniqueID = rating.ID = Guid.NewGuid().ToString("N");
+            string uniqueID = rating.ID = GetUniqueLogID();
 
             // Verify Rating dose not already exist.
             if (ratings.ContainsKey(rating.ID))
