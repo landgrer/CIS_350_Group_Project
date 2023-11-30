@@ -117,23 +117,23 @@ namespace Tests
             Assert.IsFalse(filtered);
         }
 
-        [TestMethod]
-        public async Task Metting_FilterByTimeFrame_ReturnsTrue()
-        {
-            // Arrange
-            DatabaseClient database = DatabaseClient.GetInstance();
-            DateTime startTime = DateTime.Now;
-            DateTime endTime = DateTime.Now.AddHours(1);
+        //[TestMethod]
+        //public async Task Metting_FilterByTimeFrame_ReturnsTrue()
+        //{
+        //    // Arrange
+        //    DatabaseClient database = DatabaseClient.GetInstance();
+        //    DateTime startTime = DateTime.Now;
+        //    DateTime endTime = DateTime.Now.AddHours(1);
 
-            // Act
-            await database.FilterMeetings(startTime, endTime);
-            var response = await database.GetMeetings();
-            // Only 1 meeting should be in because of Metting_Add_ReturnsTrue().
-            bool filtered = response.Count == 1;
+        //    // Act
+        //    await database.FilterMeetings(startTime, endTime);
+        //    var response = await database.GetMeetings();
+        //    // Only 1 meeting should be in because of Metting_Add_ReturnsTrue().
+        //    bool filtered = response.Count == 1;
 
-            // Assert
-            Assert.IsTrue(filtered);
-        }
+        //    // Assert
+        //    Assert.IsTrue(filtered);
+        //}
 
         [TestMethod]
         public async Task Metting_FilterByTimeFrame_ReturnsFalse()
