@@ -8,16 +8,21 @@ on:
 
 jobs:  
   build:
-    runs-on: macos-latest
+    runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v2
 
-    - name: Build
-      run: |
-        cd TutorApp
-        nuget restore
-        cd TutorApp.Android
-        msbuild TutorApp.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+
+    - name: Restor NuGet Packages
+      run: nuget restore TutorApp\TutorApp.sln
+
+    - name: Build Solution
+      run: msbuild TutorApp\TutorApp.sln
 
   Android:
     runs-on: ubuntu-latest
