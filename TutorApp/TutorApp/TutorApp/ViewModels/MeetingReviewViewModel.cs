@@ -57,7 +57,7 @@ namespace TutorApp.ViewModels
 
         private async void OnCollectionViewSelectionChanged(object obj)
         {
-            if (SelectedRating.ID.Equals(database.ProfileID))
+            if (SelectedRating.ID.Equals(database.DeviceID))
             {
                 string title = "Alert";
                 string message = "Delete review?";
@@ -77,7 +77,7 @@ namespace TutorApp.ViewModels
             MeetingRatings.Clear();
             var ratings = await database.GetRatings();
             foreach (var rating in ratings)
-                if (rating.Value.TutorProfileID.Equals(database.ProfileID))
+                if (rating.Value.TutorProfileID.Equals(database.DeviceID))
                     MeetingRatings.Add(rating.Value);
         }
 

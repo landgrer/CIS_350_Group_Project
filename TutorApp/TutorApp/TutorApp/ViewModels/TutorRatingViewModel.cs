@@ -65,7 +65,7 @@ namespace TutorApp.ViewModels
             MeetingRating meetingRating = new MeetingRating()
             {
                 TutorProfileID = _meeting.TutorProfileID,
-                StudentProfileID = database.ProfileID,
+                StudentProfileID = database.DeviceID,
                 Stars = Star,
                 Comment = Comment,
                 TutorName = _meeting.Name

@@ -28,7 +28,7 @@ namespace Tests
         {
             // Arrange
             DatabaseClient database = DatabaseClient.GetInstance();
-            Profile expected = new Profile() { FirstName = "FirstName", LastName = "LastName", ID = database.ProfileID };
+            Profile expected = new Profile() { FirstName = "FirstName", LastName = "LastName", ID = database.DeviceID };
             Profile actual = new Profile();
 
             // Act

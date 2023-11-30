@@ -167,7 +167,7 @@ namespace TutorApp.ViewModels
             Meeting meeting = new Meeting()
             {
                 TutorProfileID = Tutor.TutorProfileID,
-                StudentProfileID = database.ProfileID,
+                StudentProfileID = database.DeviceID,
                 Name = Tutor.Name,
                 Availability = "Scheduled",
                 Role = Tutor.Role,

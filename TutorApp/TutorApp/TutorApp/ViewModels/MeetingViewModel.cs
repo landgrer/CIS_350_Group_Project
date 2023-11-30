@@ -153,7 +153,7 @@ namespace TutorApp.ViewModels
             long time = DateTime.Now.Ticks;
             long endTimeTicks = Convert.ToDateTime(SelectedMeeting.EndTime).Ticks;
             string attendyID = SelectedMeeting.TutorProfileID;
-            string profileID = database.ProfileID;
+            string profileID = database.DeviceID;
             bool userAccess = attendyID.Equals(profileID) || attendyID.Equals(profileID);
             bool pastScheduling = endTimeTicks <= time;
             bool available = SelectedMeeting.Availability.Equals("Open");

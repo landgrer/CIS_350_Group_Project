@@ -8,7 +8,7 @@ namespace TutorApp.Services
 {
     public class DatabaseClient
     {
-        public string ProfileID { get; private set; } = CrossDeviceInfo.Current.Id;
+        public string DeviceID { get; private set; } = CrossDeviceInfo.Current.Id;
         public Profile User { get; private set; } = new Profile();
 
         private FirebaseTool firebase = new FirebaseTool();
@@ -117,10 +117,10 @@ namespace TutorApp.Services
         {
             await GetProfiles();
 
-            if (profiles.TryGetValue(ProfileID, out Profile profile))
+            if (profiles.TryGetValue(DeviceID, out Profile profile))
                 User = profile;
 
-            bool success = ProfileID.Equals(User.ID);
+            bool success = DeviceID.Equals(User.ID);
 
             return success;
         }
@@ -140,7 +140,7 @@ namespace TutorApp.Services
             {
                 FirstName = firstName,
                 LastName = lastName,
-                ID = ProfileID
+                ID = DeviceID
             };
 
             // Remove existing profile.
@@ -148,7 +148,7 @@ namespace TutorApp.Services
 
             // Add to Firebase and Dictionary.
             await firebase.Add(profile);
-            profiles.Add(ProfileID, profile);
+            profiles.Add(DeviceID, profile);
         }
 
         public async Task RemoveProfile()
@@ -157,7 +157,7 @@ namespace TutorApp.Services
             {
                 // Remove Profile from Firebase and Dictonary.
                 await firebase.Remove(User);
-                profiles.Remove(ProfileID);
+                profiles.Remove(DeviceID);
             }
         }
         #endregion
