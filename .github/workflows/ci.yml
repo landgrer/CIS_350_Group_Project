@@ -23,24 +23,3 @@ jobs:
 
     - name: Build Solution
       run: msbuild TutorApp\TutorApp.sln
-
-  Android:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Android
-      run: |
-        cd TutorApp
-        nuget restore
-        cd TutorApp.Android
-        msbuild TutorApp.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
-        
-  iOS:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: iOS
-      run: |
-        cd TutorApp
-        nuget restore
-        msbuild TutorApp.iOS/TutorApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
