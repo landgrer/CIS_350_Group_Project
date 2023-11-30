@@ -22,4 +22,7 @@ jobs:
       run: nuget restore TutorApp\TutorApp.sln
 
     - name: Build Solution
-      run: msbuild TutorApp\TutorApp.sln
+      run: msbuild TutorApp\TutorApp.sln /p:Configuration=Release
+
+    - name: Run Tests
+      run: msbuild TutorApp\Tests\Tests.csproj
