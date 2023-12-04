@@ -150,6 +150,7 @@ namespace TutorApp.ViewModels
 
         private string[] GetActions()
         {
+            int stars = SelectedMeeting.Stars;
             long time = DateTime.Now.Ticks;
             long endTimeTicks = Convert.ToDateTime(SelectedMeeting.EndTime).Ticks;
             string attendyID = SelectedMeeting.TutorProfileID;
@@ -166,7 +167,7 @@ namespace TutorApp.ViewModels
             if (pastScheduling == false && available == false && userAccess)
                 actions.Add("Cancle Meeting");
             // Meeting was scheduled and has finished
-            if (pastScheduling && userAccess && available == false)
+            if (pastScheduling && userAccess && available == false && stars < 0)
                 actions.Add("Rate");
             // Meeting is outdated
             if (pastScheduling && userAccess)

@@ -54,6 +54,8 @@ namespace TutorApp.ViewModels
 
             await database.AddRating(meetingRating);
 
+            await AddRatingToMeeting(meetingRating);
+
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
@@ -71,6 +73,14 @@ namespace TutorApp.ViewModels
                 TutorName = _meeting.Name
             };
             return meetingRating;
+        }
+
+        private async Task AddRatingToMeeting(MeetingRating meetingRating)
+        {
+            _meeting.Stars = meetingRating.Stars;
+            _meeting.Comment = meetingRating.Comment;
+            await database.RemoveMeeting(_meeting);
+            await database.AddMeeting(_meeting);
         }
 
         private async Task<bool> IsValid(MeetingRating meetingRating)

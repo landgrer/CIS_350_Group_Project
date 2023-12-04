@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fRating="clr-namespace:Rating;assembly=Rating"
              x:Class="TutorApp.Views.MeetingPage"
              Title="{Binding Title}"
              Shell.NavBarIsVisible="True">
@@ -35,6 +36,17 @@
                                 <BoxView Grid.Row="2" Grid.ColumnSpan="4"  Color="AliceBlue" HeightRequest="2" HorizontalOptions="Fill" />
                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding Subject}" FontSize="Medium" TextColor="AliceBlue"/>
                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding Availability}" FontSize="Medium" TextColor="AliceBlue"/>
+                                <fRating:RatingBar SelectedStarValue="{Binding Stars}"
+                                                   IsEnabled="False"
+                                                   Grid.Row="0" 
+                                                   Grid.Column="2"                                        
+                                                   ImageHeight="12"
+                                                   ImageWidth="12"
+                                                   HorizontalOptions="Fill"
+                                                   FlowDirection="LeftToRight"
+                                                   EmptyStarImage="EmptyStar"
+                                                   FillStarImage="FilledStar">
+                                </fRating:RatingBar>
                                 <Label Grid.Row="1" Grid.Column="0" Text="Tutor" FontSize="Medium" TextColor="AliceBlue"/>
                                 <Label Grid.Row="1" Grid.Column="1" Text="{Binding Name}" FontSize="Medium" TextColor="AliceBlue"/>
                                 <Label Grid.Row="3" Grid.Column="0" Text="Student:" FontSize="Medium" TextColor="AliceBlue"/>

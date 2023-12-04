@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using TutorApp.Models;
 using TutorApp.Services;
@@ -11,7 +12,7 @@ namespace Tests
     {
         #region Meeting Tests
         [TestMethod]
-        public async Task Metting_Add_ReturnsTrue()
+        public async Task Metting_AddAndRemove_ReturnsTrue()
         {
             // Arrange
             DatabaseClient database = DatabaseClient.GetInstance();
@@ -35,48 +36,59 @@ namespace Tests
 
             // Assert
             Assert.IsTrue(result);
+
+            // Act
+            await database.RemoveMeeting(meeting);
+            response = await database.GetMeetings();
+            result = response.ContainsKey(meeting.ID) == false;
+
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public async Task Metting_Remove_ReturnsTrue()
+        public async Task Metting_ClearFilter_ReturnsTrue()
         {
             // Arrange
             DatabaseClient database = DatabaseClient.GetInstance();
-            Meeting toRemove = new Meeting();
-            Meeting meeting = new Meeting()
-            {
-                TutorProfileID = database.DeviceID,
-                StudentProfileID = database.DeviceID,
-                Name = "UnitTest",
-                Role = "Student",
-                Availability = "Scheduled",
-                Subject = "Math",
-                StudentName = "UnitTest",
-                StartTime = DateTime.Now.ToString(),
-                EndTime = DateTime.Now.AddHours(1).ToString()
-            };
+            var actual = await database.GetMeetings();
+            string subject = "Math";
 
             // Act
+            bool cleared = false;
+            await database.FilterMeetings(subject);
             var response = await database.GetMeetings();
-            foreach (var meetingResonse in response)
+            if (response.Count != actual.Count)
             {
-                if (meetingResonse.Value.Name.Equals(meeting.Name))
-                {
-                    toRemove = meetingResonse.Value;
-                    break;
-                }
-            }
-
-            bool result = false;
-            if (string.IsNullOrEmpty(toRemove.Name) == false)
-            {
-                await database.RemoveMeeting(toRemove);
+                await database.ClearFilteredMeetings();
                 response = await database.GetMeetings();
-                result = response.ContainsKey(toRemove.ID) == false;
+                cleared = response.Count == actual.Count;
             }
 
             // Assert
-            Assert.IsTrue(result);
+            Assert.IsTrue(cleared);
+        }
+
+        [TestMethod]
+        public async Task Metting_ClearFilter_ReturnsFalse()
+        {
+            // Arrange
+            DatabaseClient database = DatabaseClient.GetInstance();
+            var actual = await database.GetMeetings();
+            string subject = "Christmas";
+
+            // Act
+            bool cleared = false;
+            await database.FilterMeetings(subject);
+            var response = await database.GetMeetings();
+            if (response.Count != actual.Count)
+            {
+                await database.ClearFilteredMeetings();
+                response = await database.GetMeetings();
+                cleared = response.Count == actual.Count;
+            }
+
+            // Assert
+            Assert.IsFalse(cleared);
         }
 
         [TestMethod]
@@ -87,6 +99,7 @@ namespace Tests
             string subject = "Math";
 
             // Act
+            await database.ClearFilteredMeetings();
             await database.FilterMeetings(subject);
             var response = await database.GetMeetings();
             bool filtered = response.Count > 0;
@@ -106,6 +119,7 @@ namespace Tests
             string subject = "Christmas";
 
             // Act
+            await database.ClearFilteredMeetings();
             await database.FilterMeetings(subject);
             var response = await database.GetMeetings();
             bool filtered = response.Count > 0;
@@ -117,38 +131,102 @@ namespace Tests
             Assert.IsFalse(filtered);
         }
 
-        //[TestMethod]
-        //public async Task Metting_FilterByTimeFrame_ReturnsTrue()
-        //{
-        //    // Arrange
-        //    DatabaseClient database = DatabaseClient.GetInstance();
-        //    DateTime startTime = DateTime.Now;
-        //    DateTime endTime = DateTime.Now.AddHours(1);
+        [TestMethod]
+        public async Task Metting_FilterByTimeFrame_ReturnsTrue()
+        {
+            // Arrange
+            DatabaseClient database = DatabaseClient.GetInstance();
+            var unfiltered = await database.GetMeetings();
+            Meeting meeting = unfiltered.First().Value;
+            DateTime startTime = Convert.ToDateTime(meeting.StartTime);
+            DateTime endTime = Convert.ToDateTime(meeting.EndTime);
 
-        //    // Act
-        //    await database.FilterMeetings(startTime, endTime);
-        //    var response = await database.GetMeetings();
-        //    // Only 1 meeting should be in because of Metting_Add_ReturnsTrue().
-        //    bool filtered = response.Count == 1;
+            // Act
+            await database.ClearFilteredMeetings();
+            bool result = await database.FilterMeetings(startTime, endTime);
+            var filtered = await database.GetMeetings();
+            if (unfiltered.Count > filtered.Count)
+                result = true;
 
-        //    // Assert
-        //    Assert.IsTrue(filtered);
-        //}
+            // Assert
+            Assert.IsTrue(result);
+        }
 
-        //[TestMethod]
-        //public async Task Metting_FilterByTimeFrame_ReturnsFalse()
-        //{
-        //    // Arrange
-        //    DatabaseClient database = DatabaseClient.GetInstance();
-        //    DateTime startTime = DateTime.Now.AddDays(1);
-        //    DateTime endTime = DateTime.Now.AddDays(1).AddHours(1);
+        [TestMethod]
+        public async Task Metting_FilterByTimeFrame_ReturnsFalse()
+        {
+            // Arrange
+            DatabaseClient database = DatabaseClient.GetInstance();
+            // Not able to add meetings 100 days in advance through app.
+            DateTime startTime = DateTime.Now.AddDays(100);
+            DateTime endTime = DateTime.Now.AddDays(100).AddHours(1);
 
-        //    // Act
-        //    bool filtered = await database.FilterMeetings(startTime, endTime);
+            // Act
+            await database.ClearFilteredMeetings();
+            bool filtered = await database.FilterMeetings(startTime, endTime);
 
-        //    // Assert
-        //    Assert.IsFalse(filtered);
-        //}
+            // Assert
+            Assert.IsFalse(filtered);
+        }
+
+        [TestMethod]
+        public async Task Metting_FilterBySubjectAndTimeFrame_ReturnsTrue()
+        {
+            // Arrange
+            DatabaseClient database = DatabaseClient.GetInstance();
+            var unfiltered = await database.GetMeetings();
+            Meeting meeting = unfiltered.First().Value;
+            string subject = meeting.Subject;
+            DateTime startTime = Convert.ToDateTime(meeting.StartTime);
+            DateTime endTime = Convert.ToDateTime(meeting.EndTime);
+
+            // Act
+            await database.ClearFilteredMeetings();
+            bool result = await database.FilterMeetings(startTime, endTime, subject);
+            var filtered = await database.GetMeetings();
+            if (unfiltered.Count > filtered.Count)
+                result = true;
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public async Task Metting_FilterBySubjectAndTimeFrame_SubjectFail_ReturnsFalse()
+        {
+            // Arrange
+            DatabaseClient database = DatabaseClient.GetInstance();
+            var unfiltered = await database.GetMeetings();
+            Meeting meeting = unfiltered.First().Value;
+            string subject = "Christmas";
+            DateTime startTime = Convert.ToDateTime(meeting.StartTime);
+            DateTime endTime = Convert.ToDateTime(meeting.EndTime);
+
+            // Act
+            await database.ClearFilteredMeetings();
+            bool filtered = await database.FilterMeetings(startTime, endTime, subject);
+
+            // Assert
+            Assert.IsFalse(filtered);
+        }
+
+        [TestMethod]
+        public async Task Metting_FilterBySubjectAndTimeFrame_TimeFrameFail_ReturnsFalse()
+        {
+            // Arrange
+            DatabaseClient database = DatabaseClient.GetInstance();
+            string subject = "Math";
+            // Not able to add meetings 100 days in advance through app.
+            DateTime startTime = DateTime.Now.AddDays(100);
+            DateTime endTime = DateTime.Now.AddDays(100).AddHours(1);
+
+            // Act
+            await database.ClearFilteredMeetings();
+            bool filtered = await database.FilterMeetings(startTime, endTime, subject);
+
+            // Assert
+            Assert.IsFalse(filtered);
+        }
         #endregion
 
         #region Profile Tests
