@@ -87,10 +87,10 @@ namespace TutorApp.Services
             foreach (var meeting in meetings)
             {
                 DateTime tutorStartTime = Convert.ToDateTime(meeting.Value.StartTime);
-                DateTime tutorEndTime = Convert.ToDateTime(meeting.Value.StartTime);
+                DateTime tutorEndTime = Convert.ToDateTime(meeting.Value.EndTime);
                 long tutorStart = tutorStartTime.Ticks;
                 long tutorEnd = tutorEndTime.Ticks;
-                if (start < tutorEnd && end > tutorStart)
+                if (start <= tutorEnd && end >= tutorStart)
                     filteredMeetings.Add(meeting.Key, meeting.Value);
             }
             bool filtered = filteredMeetings.Count > 0;
@@ -105,11 +105,11 @@ namespace TutorApp.Services
             foreach (var meeting in meetings)
             {
                 DateTime tutorStartTime = Convert.ToDateTime(meeting.Value.StartTime);
-                DateTime tutorEndTime = Convert.ToDateTime(meeting.Value.StartTime);
+                DateTime tutorEndTime = Convert.ToDateTime(meeting.Value.EndTime);
                 long tutorStart = tutorStartTime.Ticks;
                 long tutorEnd = tutorEndTime.Ticks;
                 if (meeting.Value.Subject.Equals(subject))
-                    if (start < tutorEnd && end > tutorStart)
+                    if (start <= tutorEnd && end >= tutorStart)
                         filteredMeetings.Add(meeting.Key, meeting.Value);
             }
             bool filtered = filteredMeetings.Count > 0;
@@ -182,7 +182,7 @@ namespace TutorApp.Services
             // This creates a unique ID.
             string uniqueID = rating.ID = GetUniqueLogID();
 
-            // Verify Rating dose not already exist.
+            // Verify Rating exists, replace it.
             if (ratings.ContainsKey(rating.ID))
                 await RemoveRating(rating);
 

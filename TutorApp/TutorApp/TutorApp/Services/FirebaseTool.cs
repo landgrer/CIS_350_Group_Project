@@ -86,7 +86,7 @@ namespace TutorApp.Services
         }
         #endregion
 
-        #region Profile Methods
+        #region Rating Methods
         public async Task<Dictionary<string, MeetingRating>> GetRatings()
         {
             Dictionary<string, MeetingRating> ratings = new Dictionary<string, MeetingRating>();
