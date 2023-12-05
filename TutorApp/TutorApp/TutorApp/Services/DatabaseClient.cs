@@ -179,6 +179,9 @@ namespace TutorApp.Services
 
         public async Task AddRating(MeetingRating rating)
         {
+            // Get ratings if it has not been initialized yet.
+            await GetRatings();
+
             // This creates a unique ID.
             string uniqueID = rating.ID = GetUniqueLogID();
 
@@ -193,6 +196,9 @@ namespace TutorApp.Services
 
         public async Task RemoveRating(MeetingRating rating)
         {
+            // Get ratings if it has not been initialized yet.
+            await GetRatings();
+
             // Remove Rating from Firebase and Dictonary.
             await firebase.Remove(rating);
             ratings.Remove(rating.ID);
