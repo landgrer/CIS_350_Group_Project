@@ -182,7 +182,7 @@ namespace TutorApp.Services
             // This creates a unique ID.
             string uniqueID = rating.ID = GetUniqueLogID();
 
-            // Verify Rating dose not already exist.
+            // Verify Rating exists, replace it.
             if (ratings.ContainsKey(rating.ID))
                 await RemoveRating(rating);
 

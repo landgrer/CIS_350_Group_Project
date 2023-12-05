@@ -120,13 +120,13 @@ namespace TutorApp.ViewModels
             DateTime tutorStartTime = Convert.ToDateTime(Tutor.StartTime);
             DateTime tutorEndTime = Convert.ToDateTime(Tutor.EndTime);
 
-            if (studentStartTime.Ticks > tutorStartTime.Ticks)
+            if (studentStartTime.Ticks >= tutorStartTime.Ticks)
             {
                 var newMeeting = SetupNewMeeting(Tutor.StartTime, meeting.StartTime);                
                 await database.AddMeeting(newMeeting);
             }
 
-            if (studentEndTime.Ticks < tutorEndTime.Ticks)
+            if (studentEndTime.Ticks <= tutorEndTime.Ticks)
             {
                 var newMeeting = SetupNewMeeting(meeting.EndTime, Tutor.EndTime);
                 await database.AddMeeting(newMeeting);

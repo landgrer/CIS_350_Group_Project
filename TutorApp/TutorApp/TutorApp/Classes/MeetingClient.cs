@@ -84,7 +84,7 @@ namespace TutorApp.Classes
         {
             List<string> timeOptions = new List<string>();
 
-            while (startDate.Ticks < endDate.Ticks)
+            while (startDate.Ticks <= endDate.Ticks)
             {
                 timeOptions.Add(startDate.ToString("h:mm tt"));
                 startDate = startDate.AddMinutes(15);
