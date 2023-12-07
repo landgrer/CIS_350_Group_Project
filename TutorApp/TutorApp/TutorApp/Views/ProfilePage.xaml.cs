@@ -7,7 +7,7 @@ namespace TutorApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
-        ProfileViewModel _viewModel;
+        public ProfileViewModel _viewModel;
 
         public ProfilePage()
         {
