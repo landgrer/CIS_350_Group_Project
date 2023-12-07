@@ -79,16 +79,22 @@ namespace TutorApp.ViewModels
 
         private async void OnDeleteClicked(object obj)
         {
-            if (await Application.Current.MainPage.DisplayAlert("Alert", "Are you sure you want to delete your profile?", "OK", "Cancel"))
-            {
-                await database.RemoveProfile();
+            // Added if statement for frontend testing.
+            //if (Application.Current.MainPage is null == false)
+            //{
+            //    string title = "Alert";
+            //    string message = "Are you sure you want to delete your profile?";
+            //    if (await Application.Current.MainPage.DisplayAlert(title, message, "OK", "Cancel") == false)
+            //        return;
+            //}
 
-                TabBar = false;
+            await database.RemoveProfile();
 
-                // Clear profile values.
-                FirstName = string.Empty;
-                LastName = string.Empty;
-            }
+            TabBar = false;
+
+            // Clear profile values.
+            FirstName = string.Empty;
+            LastName = string.Empty;
         }
         #endregion
 
@@ -104,7 +110,9 @@ namespace TutorApp.ViewModels
 
             if (string.IsNullOrEmpty(message) == false)
             {
-                await Application.Current.MainPage.DisplayAlert("Alert", message, "OK");
+                // Added if statement for frontend testing.
+                if (Application.Current.MainPage is null == false)
+                    await Application.Current.MainPage.DisplayAlert("Alert", message, "OK");
                 valid = false;
             }
 
@@ -119,8 +127,12 @@ namespace TutorApp.ViewModels
                 FirstName = database.User.FirstName;
                 LastName = database.User.LastName;
 
-                // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-                await Shell.Current.GoToAsync($"//{nameof(MeetingPage)}?");
+                // Added if statement for frontend testing.
+                if (Shell.Current is null == false)
+                {
+                    // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
+                    await Shell.Current.GoToAsync($"//{nameof(MeetingPage)}?");
+                }
             }
         }
         #endregion
