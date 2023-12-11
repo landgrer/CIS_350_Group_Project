@@ -86,4 +86,4 @@ ___
 
 ### 7. Walkthrough Video
 
-walkthrough video goes here
+https://youtu.be/XN-t9BI7UAg
